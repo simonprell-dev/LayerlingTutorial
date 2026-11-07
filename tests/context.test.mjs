@@ -62,3 +62,8 @@ test('size, near, onTop, panelOpen, editorOpen', () => {
     assert.equal(c.panelOpen('shapes'), false);
     assert.equal(c.editorOpen, false);
 });
+
+test('selectedCount aus der Auswahl', () => {
+    assert.equal(ctx(S.plateTextHole, undefined, {selection: ['p', 't', 'h']}).selectedCount(), 3);
+    assert.equal(ctx(S.plateTextHole).selectedCount(), 0);
+});
