@@ -97,6 +97,7 @@
                 tasks: [{text: k(4, 't1'), check: c => plates(c).length > 0}],
                 hints: [
                     {target: 'workplane', text: k(4, 'h1'), done: c => c.panelOpen('inspector') || plates(c).length > 0},
+                    {target: 'inspector:keepProportions', text: k(4, 'h3'), done: c => !c.panelOpen('proportionsLocked') || plates(c).length > 0},
                     {target: 'inspector:size', text: k(4, 'h2'), done: c => plates(c).length > 0}
                 ]
             },

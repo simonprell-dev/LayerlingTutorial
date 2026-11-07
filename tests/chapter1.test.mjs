@@ -137,3 +137,11 @@ test('S7: Loch muss ganz durch die Platte gehen (live gesehen: −9,5 bis 0,5 mm
     const hint = LK.flow.pickHint(ch.steps[6], ctx(shallow));
     assert.equal(hint.target, 'toolbar:drop');
 });
+
+test('S4: „Proportionen beibehalten“ angehakt → Hinweis auf den Haken (live gesehen: Quader wurde 3 × 3 × 3)', () => {
+    const cube = [{...plate, width: 3, depth: 3, height: 3}];
+    const locked = LK.flow.pickHint(ch.steps[3], ctx(cube, {panels: new Set(['inspector', 'proportionsLocked'])}));
+    assert.equal(locked.target, 'inspector:keepProportions');
+    const free = LK.flow.pickHint(ch.steps[3], ctx(cube, {panels: new Set(['inspector'])}));
+    assert.equal(free.target, 'inspector:size');
+});

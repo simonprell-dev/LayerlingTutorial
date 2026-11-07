@@ -253,8 +253,7 @@
                 current: i === state.chapter,
                 done: state.finished.includes(c.id)
             })),
-            levelBtnText: t('panel.chooseLevel'),
-            note: t('panel.independent')
+            levelBtnText: t('panel.chooseLevel')
         };
     }
 

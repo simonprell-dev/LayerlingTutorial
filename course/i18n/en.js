@@ -86,10 +86,12 @@
         'namensschild.s4.text': '<p>A name tag is flat. Click the box. Its <b>Properties</b> appear on the right.</p>' +
             '<p>Type in these sizes and press <b>Enter</b> after each:</p>' +
             '<ul><li><b>Length</b> 70 mm</li><li><b>Width</b> 25 mm</li><li><b>Height</b> 3 mm</li></ul>' +
+            '<p>Is <b>“Keep proportions”</b> ticked? Untick it – otherwise all sizes change together.</p>' +
             '<p>Your tag may be a bit bigger or smaller.</p>',
         'namensschild.s4.t1': 'Plate is about 70 × 25 × 3 mm',
         'namensschild.s4.h1': 'Click the box',
         'namensschild.s4.h2': 'Type the sizes here',
+        'namensschild.s4.h3': 'Untick this first',
 
         'namensschild.s5.title': 'Your name',
         'namensschild.s5.text': '<p>Use <b>“Add shape”</b> to get the <b>“Text”</b> shape and click with it <b>onto your plate</b>.</p>' +

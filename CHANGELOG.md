@@ -16,6 +16,7 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
   erkennt, wenn eine Form gerade an der Maus hängt.
 - Automatische, großzügige Prüfungen (Bereiche statt fester Maße); das Loch muss die Platte ganz
   durchdringen.
+- Hinweis, wenn in Layerling „Proportionen beibehalten“ angehakt ist.
 - Deutsch und Englisch; der Kurs folgt der Sprache von Layerling, Rückfall Englisch.
 - Notlösung: Erkennt die Erweiterung eine neue Layerling-Version nicht, hakt man selbst ab.
 - Symbol: Klick öffnet Layerling; Rechtsklick: an/aus, Fortschritt zurücksetzen, Hilfe.

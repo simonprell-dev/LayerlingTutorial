@@ -145,7 +145,6 @@
         });
         body.appendChild(list);
         body.appendChild(button('lk-link-btn', o.levelBtnText, 'chooseLevelDialog'));
-        body.appendChild(el('p', 'lk-small', o.note));
     }
 
     function renderPanel (vm) {

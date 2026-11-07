@@ -86,10 +86,12 @@
         'namensschild.s4.text': '<p>Ein Namensschild ist flach. Klicke den Quader an. Rechts erscheinen seine <b>Eigenschaften</b>.</p>' +
             '<p>Tippe diese Maße ein und drücke jeweils <b>Enter</b>:</p>' +
             '<ul><li><b>Länge</b> 70 mm</li><li><b>Breite</b> 25 mm</li><li><b>Höhe</b> 3 mm</li></ul>' +
+            '<p>Ist <b>„Proportionen beibehalten“</b> angehakt? Nimm den Haken weg – sonst ändern sich alle Maße gleichzeitig.</p>' +
             '<p>Dein Schild darf auch etwas größer oder kleiner sein.</p>',
         'namensschild.s4.t1': 'Platte ist etwa 70 × 25 × 3 mm groß',
         'namensschild.s4.h1': 'Klicke den Quader an',
         'namensschild.s4.h2': 'Maße hier eintippen',
+        'namensschild.s4.h3': 'Erst diesen Haken wegnehmen',
 
         'namensschild.s5.title': 'Dein Name',
         'namensschild.s5.text': '<p>Hol dir über <b>„Form hinzufügen“</b> die Form <b>„Text“</b> und klicke damit <b>auf deine Platte</b>.</p>' +
