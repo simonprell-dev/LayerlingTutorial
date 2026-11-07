@@ -34,6 +34,6 @@ test('findProblems: learn ohne check, Hinweis ohne done, doppelte id', () => {
 });
 
 test('echter Kurs: keine Probleme', () => {
-    const {course, messages, targets} = loadCourse();
-    assert.deepEqual(findProblems(course, messages, targets), []);
+    const {course, messages, targets, tools} = loadCourse();
+    assert.deepEqual(findProblems(course, messages, targets, tools), []);
 });

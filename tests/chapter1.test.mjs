@@ -103,7 +103,8 @@ test('leere Szene erfüllt keine Aufgabe ab S3', () => {
 });
 
 test('jeder Hinweis hat done, jedes Ziel ist bekannt, info hat keine Aufgaben', () => {
-    const known = id => Boolean(LK.access.TARGETS[id]);
+    const known = id => Boolean(LK.access.TARGETS[id]) || /^libItem:[A-Za-z]+$/.test(id) ||
+        (id.startsWith('toolbar:') && LK.access.TOOLS.includes(id.slice(8)));
     LK.course.chapters.forEach(c => c.steps.forEach((s, si) => {
         (s.hints || []).forEach(h => {
             assert.equal(typeof h.done, 'function', `${c.id} ${si + 1}`);
