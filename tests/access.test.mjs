@@ -102,3 +102,17 @@ test('Review #6: openPanels wirft nie', () => {
     const set = w.LK.access.openPanels();
     assert.equal(set.size, 0);
 });
+
+test('Skizzenmodus: 3D-Ansicht abgebaut → letzter bekannter Formenstand (live gesehen: sonst „Version unbekannt“)', () => {
+    const view = {tag: 0, memoizedProps: {shapes: [{id: 'a', kind: 'box'}], selectedIds: []}, child: null, sibling: null};
+    const root = {child: view, return: null};
+    let sketch = false;
+    const body = {'__reactFiber$x': {return: root}};
+    const doc = {body, querySelector: sel => (sel === '.sketch-workspace-stage' && sketch ? {} : null), querySelectorAll: () => [], addEventListener: () => {}};
+    const a = load(['lib/layerling-access.js'], {document: doc}).LK.access;
+    assert.equal(a.getShapes().length, 1);
+    root.child = {tag: 0, memoizedProps: {}, child: null, sibling: null};
+    assert.equal(a.getShapes(), null, 'ohne Skizze: wirklich nicht lesbar');
+    sketch = true;
+    assert.equal(a.getShapes().length, 1, 'in der Skizze: letzter Stand');
+});
