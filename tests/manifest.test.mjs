@@ -8,7 +8,7 @@ test('manifest: nur layerling.com', () => {
     assert.equal(m.manifest_version, 3);
     assert.deepEqual(m.host_permissions, ['https://layerling.com/*']);
     assert.deepEqual([...m.permissions].sort(), ['contextMenus', 'scripting', 'storage']);
-    assert.equal(m.homepage_url, 'https://simonprell-dev.github.io/layerlingExtention/');
+    assert.equal(m.homepage_url, 'https://simonprell-dev.github.io/LayerlingTutorial/');
     assert.equal(m.background.service_worker, 'background.js');
     for (const s of ['16', '32', '48', '128']) assert.ok(fs.existsSync(m.icons[s]), m.icons[s]);
 });

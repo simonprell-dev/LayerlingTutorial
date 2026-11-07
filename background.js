@@ -11,7 +11,7 @@
 'use strict';
 
 const EDITOR_URL = 'https://layerling.com/';
-const HELP_URL = 'https://github.com/simonprell-dev/layerlingExtention#benutzung';
+const HELP_URL = 'https://github.com/simonprell-dev/LayerlingTutorial#benutzung';
 const LAYERLING_TABS = 'https://layerling.com/*';
 const msg = key => chrome.i18n.getMessage(key) || key;
 

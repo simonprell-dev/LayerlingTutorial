@@ -31,7 +31,7 @@ hast. Am Ende jedes Kapitels steht ein fertiges Teil, das du drucken kannst.
 So geht's: Symbol anklicken → Layerling öffnet sich → unten links „Kurs starten“.
 
 Unabhängiges, quelloffenes Projekt (MIT). Nicht mit Layerling oder henmedia verbunden.
-Quellcode und Anleitung: https://github.com/simonprell-dev/layerlingExtention
+Quellcode und Anleitung: https://github.com/simonprell-dev/LayerlingTutorial
 
 **Kategorie:** Bildung
 **Sprache:** Deutsch
@@ -65,7 +65,7 @@ a part you can print.
 How to start: click the icon → Layerling opens → “Start course” at the bottom left.
 
 Independent open-source project (MIT). Not affiliated with Layerling or henmedia.
-Source and guide: https://github.com/simonprell-dev/layerlingExtention
+Source and guide: https://github.com/simonprell-dev/LayerlingTutorial
 
 **Category:** Education
 **Language:** English
@@ -83,8 +83,8 @@ Source and guide: https://github.com/simonprell-dev/layerlingExtention
 
 ## Weitere Felder
 
-- **Website:** https://simonprell-dev.github.io/layerlingExtention/
-- **Support:** https://github.com/simonprell-dev/layerlingExtention/issues
+- **Website:** https://simonprell-dev.github.io/LayerlingTutorial/
+- **Support:** https://github.com/simonprell-dev/LayerlingTutorial/issues
 - **Sichtbarkeit:** Öffentlich
 - **Regionen:** Alle
 
@@ -108,8 +108,8 @@ Entwurfs nur lokal, um Aufgaben zu prüfen.
 Alle drei Bestätigungen (kein Verkauf, keine fremde Nutzung, keine Bonitätsprüfung) ankreuzen.
 
 **Datenschutzerklärung (URL):**
-https://simonprell-dev.github.io/layerlingExtention/#datenschutz
-(englisch: https://simonprell-dev.github.io/layerlingExtention/en/#privacy)
+https://simonprell-dev.github.io/LayerlingTutorial/#datenschutz
+(englisch: https://simonprell-dev.github.io/LayerlingTutorial/en/#privacy)
 
 ## Paket hochladen
 

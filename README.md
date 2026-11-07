@@ -58,7 +58,7 @@ Version 0.1.0: alle sechs Kapitel mit zusammen 63 Schritten.
 
 ### Ohne Store installieren (z. B. für verwaltete Schulrechner)
 
-1. Unter [Releases](https://github.com/simonprell-dev/layerlingExtention/releases) die Datei
+1. Unter [Releases](https://github.com/simonprell-dev/LayerlingTutorial/releases) die Datei
    `einfuehrungskurs-layerling-vX.Y.Z.zip` laden und entpacken.
 2. `chrome://extensions` (bzw. `edge://extensions`) öffnen, **Entwicklermodus** einschalten.
 3. **Entpackte Erweiterung laden** und den entpackten Ordner wählen.
@@ -106,7 +106,7 @@ Version 0.1.0: alle sechs Kapitel mit zusammen 63 Schritten.
   ist (Rechtsklick aufs Symbol).
 - **„Diese Layerling-Version kenne ich noch nicht“:** Layerling wurde aktualisiert und die
   Erweiterung findet die Formen nicht mehr. Der Kurs läuft weiter, die Aufgaben hakt man selbst
-  ab. Bitte als [Fehler melden](https://github.com/simonprell-dev/layerlingExtention/issues/new/choose).
+  ab. Bitte als [Fehler melden](https://github.com/simonprell-dev/LayerlingTutorial/issues/new/choose).
 - **Aufgabe hakt sich nicht ab:** Maße und Lage vergleichen (z. B. muss das Loch die Platte ganz
   durchdringen). Notfalls weiterblättern.
 
@@ -119,7 +119,7 @@ die Formen des geöffneten Entwurfs nur, um Aufgaben zu prüfen, und verändert 
 
 ## Mitmachen
 
-- **Fehler und Ideen:** über die [Issue-Vorlagen](https://github.com/simonprell-dev/layerlingExtention/issues/new/choose).
+- **Fehler und Ideen:** über die [Issue-Vorlagen](https://github.com/simonprell-dev/LayerlingTutorial/issues/new/choose).
 - **Neue Kapitel:** siehe [CONTRIBUTING.md](CONTRIBUTING.md) und den Claude-Code-Skill
   [`.claude/skills/kurs-kapitel`](.claude/skills/kurs-kapitel/SKILL.md).
 - **Neue Sprache:** `course/i18n/en.js` kopieren, übersetzen, in `background.js` eintragen,
