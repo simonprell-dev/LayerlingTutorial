@@ -71,10 +71,12 @@ Source and guide: https://github.com/simonprell-dev/layerlingExtention
 
 | Element | Größe | Datei |
 |---|---|---|
-| Store-Symbol | 128 × 128 | `icons/icon-128.png` |
+| Store-/Händlersymbol | 128 × 128 (96 px Motiv + Rand) | `docs/store/haendlersymbol-128.png` |
 | Screenshots (5) | 1280 × 800 | `docs/store/screenshot-1-stufen.png` … `screenshot-5-uebersicht.png` |
 | Kleine Werbekachel | 440 × 280 | `docs/store/promo-440x280.png` |
 | Marquee | 1400 × 560 | `docs/store/promo-1400x560.png` |
+| Globales Werbevideo | – | leer lassen |
+| GitHub-Vorschaubild (Repo → Settings → Social preview) | 1280 × 640 | `docs/social-preview.png` |
 
 ## Weitere Felder
 
@@ -101,3 +103,22 @@ Einstellungen bleiben lokal im Browser. Die Erweiterung liest die Formen des ge�
 Entwurfs nur lokal, um Aufgaben zu prüfen.
 
 Alle drei Bestätigungen (kein Verkauf, keine fremde Nutzung, keine Bonitätsprüfung) ankreuzen.
+
+**Datenschutzerklärung (URL):**
+https://simonprell-dev.github.io/layerlingExtention/#datenschutz
+(englisch: https://simonprell-dev.github.io/layerlingExtention/en/#privacy)
+
+## Paket hochladen
+
+Die ZIP-Datei `einfuehrungskurs-layerling-v0.1.0.zip` entsteht automatisch beim Release
+(GitHub → Releases → v0.1.0 → Assets) und kann direkt im Chrome-Entwickler-Dashboard und
+im Microsoft-Partner-Center (Edge Add-ons) hochgeladen werden.
+
+## Edge Add-ons (Partner Center)
+
+Gleiche Texte und Bilder wie oben. Zusätzlich:
+
+- **Suchbegriffe:** Layerling, 3D-Druck, CAD, Kurs, Schule, 3D printing, tutorial
+- **Datenschutzrichtlinie erforderlich?** Nein (keine Daten), URL trotzdem angeben.
+- **Anmerkungen für die Zertifizierung:** „Läuft nur auf https://layerling.com/. Symbol anklicken
+  → Layerling öffnet sich → unten links „Kurs starten“. Kein Konto nötig.“
