@@ -22,3 +22,6 @@ export function load (files, extraGlobals = {}) {
     }
     return sandbox;
 }
+
+// Objekte aus der vm haben andere Prototypen – für deepEqual in normale Objekte umwandeln.
+export const plain = v => JSON.parse(JSON.stringify(v));
