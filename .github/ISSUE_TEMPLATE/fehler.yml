@@ -1,0 +1,40 @@
+name: 🐞 Fehler melden / Report a bug
+description: Etwas funktioniert nicht wie erwartet. / Something doesn't work as expected.
+labels: [fehler]
+body:
+  - type: textarea
+    id: was
+    attributes:
+      label: Was ist passiert? / What happened?
+      description: Was hast du gemacht, was hast du erwartet, was ist stattdessen passiert?
+    validations:
+      required: true
+  - type: input
+    id: wo
+    attributes:
+      label: Wo im Kurs? / Where in the course?
+      placeholder: z. B. Kapitel 1 „Namensschild“, Schritt 7 „Loch für den Schlüsselring“
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      options: [Chrome, Edge, Brave, anderer / other]
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version der Erweiterung / Extension version
+      description: Steht unter chrome://extensions bei der Erweiterung.
+      placeholder: z. B. 0.1.0
+  - type: input
+    id: layerling
+    attributes:
+      label: Layerling-Version
+      description: Steht unten rechts in Layerling („Versionshinweise v…“).
+      placeholder: z. B. 1.150.0
+  - type: textarea
+    id: konsole
+    attributes:
+      label: Ausgabe von LK.access.health() (optional)
+      description: In Layerling F12 drücken, Konsole öffnen, LK.access.health() eingeben und das Ergebnis hier einfügen.
