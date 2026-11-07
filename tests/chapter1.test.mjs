@@ -1,10 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {load, plain} from './load.mjs';
+import {load, plain, courseFiles} from './load.mjs';
 import {S, plate, text, hole} from './fixtures/shapes.mjs';
 
-const w = load(['lib/geometry.js', 'lib/layerling-access.js', 'course/i18n.js', 'course/i18n/de.js', 'course/i18n/en.js',
-    'course/context.js', 'course/flow.js', 'course/course-data.js']);
+const w = load(courseFiles());
 const {LK} = w;
 const ch = LK.course.chapters[0];
 
@@ -23,13 +22,12 @@ test('Kapitel 1: Namensschild mit 12 Schritten', () => {
     assert.equal(ch.steps[10].autoHints, false);
 });
 
-test('Kapitel 2–6 kommen bald', () => {
+test('Kapitel 2–6: Reihenfolge, Stufen; „kommt bald“ genau dann, wenn ohne Schritte', () => {
     const rest = LK.course.chapters.slice(1);
-    assert.deepEqual(plain(rest.map(c => [c.id, c.level, c.comingSoon])), [
-        ['lesezeichen', 'etwas', true], ['stiftebecher', 'etwas', true], ['handystaender', 'profi', true],
-        ['schraubdose', 'profi', true], ['getriebe', 'profi', true]
+    assert.deepEqual(plain(rest.map(c => [c.id, c.level])), [
+        ['lesezeichen', 'etwas'], ['stiftebecher', 'etwas'], ['handystaender', 'profi'], ['schraubdose', 'profi'], ['getriebe', 'profi']
     ]);
-    rest.forEach(c => assert.equal(c.steps.length, 0));
+    rest.forEach(c => assert.equal(Boolean(c.comingSoon), c.steps.length === 0, c.id));
 });
 
 test('S2: neuer, leerer Entwurf', () => {

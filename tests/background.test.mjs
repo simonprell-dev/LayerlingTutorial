@@ -30,9 +30,11 @@ const listJs = dir => fs.readdirSync(dir, {recursive: true}).filter(f => f.endsW
 test('background: Skriptliste vollständig, in Lade-Reihenfolge und vorhanden', () => {
     const s = loadBackground();
     const js = [...s.__PAGE.js];
-    assert.deepEqual(js, ['lib/geometry.js', 'lib/layerling-access.js', 'course/i18n.js', 'course/i18n/de.js', 'course/i18n/en.js',
-        'course/progress.js', 'course/context.js', 'course/flow.js', 'course/reader.js', 'course/course-data.js', 'course/overlay.js',
-        'course/panel.js', 'course/course.js']);
+    const ids = ['lesezeichen', 'stiftebecher', 'handystaender', 'schraubdose', 'getriebe'];
+    assert.deepEqual(js, ['lib/geometry.js', 'lib/layerling-access.js', ...ids.map(i => `lib/targets/${i}.js`),
+        'course/i18n.js', 'course/i18n/de.js', 'course/i18n/en.js', ...ids.map(i => `course/i18n/de/${i}.js`), ...ids.map(i => `course/i18n/en/${i}.js`),
+        'course/progress.js', 'course/context.js', 'course/flow.js', 'course/reader.js', ...ids.map(i => `course/chapters/${i}.js`),
+        'course/course-data.js', 'course/overlay.js', 'course/panel.js', 'course/course.js']);
     js.forEach(f => assert.ok(fs.existsSync(f), f));
     const all = [...listJs('lib'), ...listJs('course')];
     all.forEach(f => assert.ok(js.includes(f), `fehlt in der Skriptliste: ${f}`));
@@ -71,5 +73,5 @@ test('Installation: schon offene Layerling-Tabs bekommen den Kurs nachgereicht (
         }
     });
     await s.listeners.installed();
-    assert.deepEqual(calls, [['css', 1], ['js', 1, 'MAIN', 13]]);
+    assert.deepEqual(calls, [['css', 1], ['js', 1, 'MAIN', 33]]);
 });

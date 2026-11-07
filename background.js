@@ -15,19 +15,26 @@ const HELP_URL = 'https://github.com/simonprell-dev/layerlingExtention#benutzung
 const LAYERLING_TABS = 'https://layerling.com/*';
 const msg = key => chrome.i18n.getMessage(key) || key;
 
+// Kapitel 2–6 liegen in eigenen Dateien (Ziele, Texte je Sprache, Kapitel).
+const CHAPTERS = ['lesezeichen', 'stiftebecher', 'handystaender', 'schraubdose', 'getriebe'];
+
 const PAGE_SCRIPTS = {
     id: 'layerling-kurs',
     matches: [LAYERLING_TABS],
     js: [
         'lib/geometry.js',
         'lib/layerling-access.js',
+        ...CHAPTERS.map(id => `lib/targets/${id}.js`),
         'course/i18n.js',
         'course/i18n/de.js',
         'course/i18n/en.js',
+        ...CHAPTERS.map(id => `course/i18n/de/${id}.js`),
+        ...CHAPTERS.map(id => `course/i18n/en/${id}.js`),
         'course/progress.js',
         'course/context.js',
         'course/flow.js',
         'course/reader.js',
+        ...CHAPTERS.map(id => `course/chapters/${id}.js`),
         'course/course-data.js',
         'course/overlay.js',
         'course/panel.js',

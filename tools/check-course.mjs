@@ -1,19 +1,12 @@
 // Prüft die Kursinhalte: Übersetzungen vollständig, Hinweis-Ziele bekannt, Kapitel-IDs
 // eindeutig, jede learn-Aufgabe prüfbar, jeder Hinweis mit done.
 // Aufruf: node tools/check-course.mjs   (npm run check)
-import fs from 'node:fs';
-import path from 'node:path';
-import {fileURLToPath, pathToFileURL} from 'node:url';
-import {load} from '../tests/load.mjs';
-
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+import {pathToFileURL} from 'node:url';
+import {load, courseFiles} from '../tests/load.mjs';
 
 export function loadCourse () {
-    const langs = fs.readdirSync(path.join(ROOT, 'course/i18n')).filter(f => f.endsWith('.js')).sort();
-    const files = ['lib/geometry.js', 'lib/layerling-access.js', 'course/i18n.js',
-        ...langs.map(f => `course/i18n/${f}`), 'course/context.js', 'course/flow.js', 'course/course-data.js'];
-    const w = load(files.map(f => path.join(ROOT, f)));
-    return {course: w.LK.course, messages: w.LK.i18n.messages, targets: w.LK.access.TARGETS};
+    const w = load(courseFiles());
+    return {course: w.LK.course, messages: w.LK.i18n.messages, targets: w.LK.access.TARGETS, tools: w.LK.access.TOOLS};
 }
 
 function keysOf (course) {
@@ -32,7 +25,11 @@ function keysOf (course) {
     return keys;
 }
 
-export function findProblems (course, messages, targets) {
+// Bekanntes Ziel: Eintrag in TARGETS, libItem:<art> oder toolbar:<Werkzeug aus TOOLS>.
+const knownTarget = (id, targets, tools) => Boolean(targets[id]) || /^libItem:[A-Za-z]+$/.test(id) ||
+    (id.startsWith('toolbar:') && (tools || []).includes(id.slice(8)));
+
+export function findProblems (course, messages, targets, tools) {
     const problems = [];
     const langs = Object.keys(messages).sort();
     const seen = new Set();
@@ -48,7 +45,7 @@ export function findProblems (course, messages, targets) {
                 }
             });
             [...(s.hints || []), ...(s.labels || [])].forEach(h => {
-                if (!targets[h.target]) problems.push(`${where}: unbekanntes Ziel „${h.target}“`);
+                if (!knownTarget(h.target, targets, tools)) problems.push(`${where}: unbekanntes Ziel „${h.target}“`);
             });
             (s.hints || []).forEach((h, hi) => {
                 if (typeof h.done !== 'function') problems.push(`${where}: Hinweis ${hi + 1} ohne done`);
@@ -77,8 +74,8 @@ export function findProblems (course, messages, targets) {
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-    const {course, messages, targets} = loadCourse();
-    const problems = findProblems(course, messages, targets);
+    const {course, messages, targets, tools} = loadCourse();
+    const problems = findProblems(course, messages, targets, tools);
     problems.forEach(p => console.log(p));
     const steps = course.chapters.reduce((n, c) => n + (c.steps || []).length, 0);
     console.log(problems.length ?

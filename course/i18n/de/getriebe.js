@@ -1,0 +1,8 @@
+/* Kurstexte Deutsch für Kapitel „getriebe“. Gleiche Schlüssel in allen Sprachen (npm run check). */
+(function (root) {
+    'use strict';
+    const LK = root.LK = root.LK || {};
+    LK.i18n = LK.i18n || {messages: {}};
+    LK.i18n.messages.de = Object.assign(LK.i18n.messages.de || {}, {
+    });
+})(typeof window !== 'undefined' ? window : globalThis);

@@ -207,19 +207,16 @@
         ]
     };
 
-    // ---------- Kapitel 2–6: angekündigt ----------
+    // ---------- Kapitel 2–6: je eine Datei unter course/chapters/ ----------
 
-    const soon = (id, level, type, icon) => ({id, level, type, icon, title: `${id}.title`, desc: `${id}.desc`, comingSoon: true, steps: []});
+    const fromFile = id => {
+        const ch = LK.chapters && LK.chapters[id];
+        if (ch && ch.steps && ch.steps.length) return Object.assign({}, ch, {comingSoon: false});
+        return ch || {id, title: `${id}.title`, desc: `${id}.desc`, comingSoon: true, steps: []};
+    };
 
     LK.course = {
-        chapters: [
-            namensschild,
-            soon('lesezeichen', 'etwas', 'sketch', '🔖'),
-            soon('stiftebecher', 'etwas', 'body', '✏️'),
-            soon('handystaender', 'profi', 'sketch', '📱'),
-            soon('schraubdose', 'profi', 'mechanics', '🫙'),
-            soon('getriebe', 'profi', 'mechanics', '⚙️')
-        ],
+        chapters: [namensschild, ...['lesezeichen', 'stiftebecher', 'handystaender', 'schraubdose', 'getriebe'].map(fromFile)],
         levels: ['neu', 'etwas', 'profi']
     };
 })(typeof window !== 'undefined' ? window : globalThis);
