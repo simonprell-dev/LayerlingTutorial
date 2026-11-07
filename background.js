@@ -27,6 +27,7 @@ const PAGE_SCRIPTS = {
         'course/progress.js',
         'course/context.js',
         'course/flow.js',
+        'course/reader.js',
         'course/course-data.js',
         'course/overlay.js',
         'course/panel.js',

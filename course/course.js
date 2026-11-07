@@ -14,14 +14,15 @@
     const t = (k, v) => i18n.t(k, v);
     const chapters = LK.course.chapters;
     const TICK_MS = 250;
-    const MISSES_UNTIL_UNKNOWN = 12; // 3 s ohne Formen im Editor → Layerling-Version unbekannt
 
     let state = progress.load(root.localStorage);
     let view = 'step'; // step | overview | done
     let modalOpen = false;
     let manualHint = false;
     let base = {ids: [], exportCount: 0};
-    let misses = 0;
+    let basePending = true;
+    const reader = LK.makeReader();
+    let lastRead = {editorOpen: false, shapes: [], pending: false, unknown: false, rebase: false};
     let lastLang = '';
     let wasComplete = false;
     let stepKey = '';
@@ -73,24 +74,32 @@
 
     // ---------- Stand von Layerling ----------
 
+    // Siehe course/reader.js: Editor zu · pending · unknown · ok. Im Zustand unknown wird der
+    // React-Baum nur noch selten durchsucht.
     function readShapes () {
+        if (!reader.needsRead()) return Object.assign({}, lastRead, {rebase: false});
         const editorOpen = access.isEditorOpen();
-        if (!editorOpen) {
-            misses = 0;
-            return {editorOpen, shapes: [], unknown: false};
-        }
-        const shapes = access.getShapes();
-        misses = shapes === null ? misses + 1 : 0;
-        const unknown = misses >= MISSES_UNTIL_UNKNOWN;
-        return {editorOpen, shapes: unknown ? null : (shapes || []), unknown};
+        lastRead = reader.read({
+            editorOpen,
+            shapes: editorOpen ? access.getShapes() : null,
+            projectId: access.lastProjectId()
+        });
+        return lastRead;
+    }
+
+    // „Schon vorhanden“ wird erst festgehalten, wenn die Formen des offenen Entwurfs wirklich
+    // gelesen sind – nicht auf der Startseite und nicht, solange Layerling noch lädt.
+    function takeBase (shapes) {
+        base = {
+            ids: LK.geometry.flatten(shapes).map(e => e.shape.id),
+            exportCount: access.exportCount()
+        };
+        basePending = false;
     }
 
     function enterStep () {
-        const {shapes} = readShapes();
-        base = {
-            ids: LK.geometry.flatten(shapes || []).map(e => e.shape.id),
-            exportCount: access.exportCount()
-        };
+        basePending = true;
+        if (lastRead.editorOpen && Array.isArray(lastRead.shapes)) takeBase(lastRead.shapes);
         manualHint = false;
         wasComplete = flow.evaluate(currentStep(), {shapesKnown: false}, doneList()).complete;
         overlay.clear();
@@ -98,7 +107,7 @@
 
     function context (read) {
         return LK.makeContext({
-            shapes: read.shapes,
+            shapes: read.pending ? [] : read.shapes,
             base,
             exportCount: access.exportCount(),
             panels: access.openPanels(),
@@ -185,7 +194,7 @@
         toggleTask (i) {
             const step = currentStep();
             const task = step.tasks && step.tasks[i];
-            if (!task || !flow.isManual(task, context(readShapes()))) return;
+            if (!task || !flow.isManual(task, context(lastRead))) return;
             setDone(flow.toggleManual(doneList(), i));
             save();
         },
@@ -340,9 +349,13 @@
                 stepKey = key;
                 enterStep();
             }
+            if (read.editorOpen && Array.isArray(read.shapes) && (basePending || read.rebase)) takeBase(read.shapes);
             const c = context(read);
             let res = {done: doneList(), complete: false};
-            if (state.open && view === 'step') {
+            // Solange Layerling lädt (pending) oder „schon vorhanden“ noch nicht feststeht, wird
+            // nichts geprüft – sonst sähe ein ladender Entwurf leer aus.
+            const waiting = read.pending || (read.editorOpen && basePending && !read.unknown);
+            if (state.open && view === 'step' && !waiting) {
                 res = flow.evaluate(step, c, doneList());
                 if (res.done.join() !== doneList().join()) {
                     setDone(res.done);

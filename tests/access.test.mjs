@@ -89,3 +89,16 @@ test('placingKind: Form an der Maus (cruiseAsset)', () => {
     a.findShapesInFiber({child: viewport});
     assert.equal(a.lastPlacingKind(), null);
 });
+
+test('lastProjectId aus den Props', () => {
+    const a = fresh();
+    a.findShapesInFiber({child: {tag: 0, memoizedProps: {shapes: [], selectedIds: [], projectId: 'p7'}, child: null, sibling: null}});
+    assert.equal(a.lastProjectId(), 'p7');
+});
+
+test('Review #6: openPanels wirft nie', () => {
+    const doc = {querySelector: () => { throw new Error('kaputt'); }, querySelectorAll: () => { throw new Error('kaputt'); }, addEventListener: () => {}};
+    const w = load(['lib/layerling-access.js'], {document: doc});
+    const set = w.LK.access.openPanels();
+    assert.equal(set.size, 0);
+});
