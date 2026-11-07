@@ -74,3 +74,14 @@ test('flatten: gedrehte Gruppe dreht die Versätze mit', () => {
     const c = out.find(e => e.shape.id === 'c').shape;
     close(Math.abs(c.x), 0); close(Math.abs(c.z), 10); assert.equal(c.rotation, 90);
 });
+
+test('sameDirection: lange Seiten parallel, Drehung und Maßtausch beachtet', () => {
+    const g = load(['lib/geometry.js']).LK.geometry;
+    const p = {width: 70, depth: 25, rotation: 0};
+    assert.equal(g.sameDirection(p, {width: 40, depth: 12, rotation: 0}), true);
+    assert.equal(g.sameDirection(p, {width: 40, depth: 12, rotation: 90}), false);
+    assert.equal(g.sameDirection(p, {width: 40, depth: 12, rotation: 180}), true);
+    assert.equal(g.sameDirection({width: 25, depth: 70, rotation: 0}, {width: 40, depth: 12, rotation: -90}), true);
+    assert.equal(g.sameDirection(p, {width: 40, depth: 12, rotation: 10}), true, 'kleine Schräge ist ok');
+    assert.equal(g.sameDirection(p, {width: 40, depth: 12, rotation: 30}), false);
+});

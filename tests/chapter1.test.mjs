@@ -61,7 +61,21 @@ test('S5: Text mit eigenem Inhalt', () => {
 test('S6: Text liegt flach auf der Platte', () => {
     passes(5, S.plateText);
     assert.ok(!done(5, S.floatingText).includes(0), 'schwebender Text liegt nicht auf');
-    assert.equal(done(5, [plate, {...text, height: 10}]).length, 1, 'aufliegend, aber zu hoch: nur eine Aufgabe');
+    assert.ok(!done(5, [plate, {...text, height: 10}]).includes(1), 'aufliegend, aber zu hoch: nicht flach');
+});
+
+test('S6: Schrift muss längs über die Platte laufen und draufpassen (live gesehen: Platte hochkant, Name quer)', () => {
+    const upright = {...plate, width: 25, depth: 70};
+    const across = {...text, x: 0, width: 50};
+    const t = ch.steps[5].tasks.length;
+    assert.equal(t, 3);
+    assert.ok(!done(5, [upright, across]).includes(2), 'quer über hochkanter Platte: nicht abgehakt');
+    passes(5, [upright, {...across, rotation: 90}]);
+    passes(5, [upright, {...across, rotation: -90}]);
+    passes(5, [{...plate, rotation: 90}, {...across, rotation: 90}]);
+    assert.ok(!done(5, [plate, {...text, x: 0, width: 90}]).includes(2), 'Name länger als die Platte: nicht abgehakt');
+    const hint = LK.flow.pickHint(ch.steps[5], ctx([upright, across]), []);
+    assert.equal(hint && hint.target, 'inspector:rotation');
 });
 
 test('S7: Loch 3–8 mm an der Platte, Vollkörper nicht', () => {

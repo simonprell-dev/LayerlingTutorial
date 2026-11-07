@@ -14,6 +14,8 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
 - Kapitel 2–6 in der Übersicht angekündigt.
 - Schon offene Layerling-Tabs bekommen den Kurs direkt nach der Installation, beim Einschalten
   und beim Klick aufs Symbol – kein Neuladen nötig.
+- Kapitel 1, Schritt 6: neue Aufgabe „Name läuft längs über die Platte und passt drauf“ mit
+  Hinweis aufs Drehen (Taste R oder Karte „Drehung“).
 - Zeige-Hand findet Knöpfe auch in eingeklappten Werkzeugbereichen und Eigenschaften-Karten und
   erkennt, wenn eine Form gerade an der Maus hängt.
 - Automatische, großzügige Prüfungen (Bereiche statt fester Maße); das Loch muss die Platte ganz

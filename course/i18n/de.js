@@ -106,11 +106,16 @@
         'namensschild.s6.text': '<p>Die Schrift soll <b>auf</b> der Platte liegen und nur wenig herausragen.</p>' +
             '<ul><li>Liegt der Text daneben? Zieh ihn mit der Maus auf die Platte.</li>' +
             '<li>Stell die <b>Höhe</b> des Textes auf etwa <b>2 mm</b>.</li>' +
+            '<li>Läuft der Name quer über die Platte? <b>Dreh</b> ihn: Text anklicken und zweimal die Taste <b>R</b> drücken ' +
+            '(jedes Mal 45°) – oder in der Karte <b>„Drehung“</b> bei <b>„Um Z“</b> 90 eintippen.</li>' +
             '<li>Passt der Name nicht drauf? Mach die Buchstaben kleiner.</li></ul>',
         'namensschild.s6.t1': 'Text liegt auf der Platte',
         'namensschild.s6.t2': 'Schrift ist flach (etwa 2 mm hoch)',
         'namensschild.s6.h1': 'Text auf die Platte ziehen',
         'namensschild.s6.h2': 'Höhe auf 2 mm',
+        'namensschild.s6.t3': 'Name läuft längs über die Platte und passt drauf',
+        'namensschild.s6.h3': 'Text drehen: zweimal R drücken oder hier 90 eintippen',
+        'namensschild.s6.h4': 'Name zu lang? Breite kleiner machen',
 
         'namensschild.s7.title': 'Loch für den Schlüsselring',
         'namensschild.s7.text': '<p>Löcher baust du in Layerling mit einer <b>Aussparung</b>: Eine Form, die Material wegnimmt.</p>' +

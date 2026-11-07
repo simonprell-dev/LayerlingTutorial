@@ -69,7 +69,7 @@ test('ohne Treffer null', () => {
 test('TARGETS enthält alle Kurs-Ziele', () => {
     const a = fresh();
     const need = ['newDesign', 'addShape', 'libItem:box', 'libItem:text', 'libItem:cylinder', 'libItem:nameTag',
-        'inspector', 'inspector:size', 'inspector:text', 'inspector:hole', 'inspector:solid', 'toolbar:group',
+        'inspector', 'inspector:size', 'inspector:text', 'inspector:rotation', 'inspector:hole', 'inspector:solid', 'toolbar:group',
         'export', 'export:stl', 'viewCube', 'workplane'];
     for (const id of need) assert.equal(typeof a.TARGETS[id], 'function', id);
 });

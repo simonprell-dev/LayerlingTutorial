@@ -33,6 +33,10 @@
 
     const textOnPlate = c => ownTexts(c).some(t => c.shapes('box').some(p => !p.hole && c.onTop(t, p, 1)));
     const flatText = c => ownTexts(c).some(t => between(c.size(t).h, 0.5, 6));
+    // Der Name läuft längs über die Platte und passt drauf (2 mm Spielraum).
+    // Live gesehen: Platte hochkant (Breite 25, Tiefe 70), Name quer darüber und viel zu breit.
+    const textAlong = c => ownTexts(c).some(t => c.shapes('box').some(p => !p.hole && c.onTop(t, p, 1) &&
+        G().sameDirection(t, p) && G().insideXZ(t, p, 2)));
 
     const holeCylinders = c => c.holes('cylinder');
     const goodHole = (c, s) => between(c.size(s).long, 3, 8) && between(c.size(s).short, 3, 8);
@@ -119,10 +123,14 @@
                 text: k(6, 'text'),
                 tasks: [
                     {text: k(6, 't1'), check: textOnPlate},
-                    {text: k(6, 't2'), check: flatText}
+                    {text: k(6, 't2'), check: flatText},
+                    {text: k(6, 't3'), check: textAlong}
                 ],
                 hints: [
                     {target: 'workplane', text: k(6, 'h1'), done: textOnPlate},
+                    {target: 'inspector:rotation', text: k(6, 'h3'), done: c => textAlong(c) || ownTexts(c).some(t =>
+                        c.shapes('box').some(p => !p.hole && c.onTop(t, p, 1) && G().sameDirection(t, p)))},
+                    {target: 'inspector:size', text: k(6, 'h4'), done: textAlong},
                     {target: 'inspector:size', text: k(6, 'h2'), done: flatText}
                 ]
             },

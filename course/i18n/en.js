@@ -106,11 +106,16 @@
         'namensschild.s6.text': '<p>The letters should sit <b>on</b> the plate and stick out only a little.</p>' +
             '<ul><li>Is the text next to the plate? Drag it onto the plate.</li>' +
             '<li>Set the text’s <b>Height</b> to about <b>2 mm</b>.</li>' +
+            '<li>Does the name run across the plate? <b>Turn</b> it: click the text and press <b>R</b> twice ' +
+            '(45° each time) – or type 90 at <b>“About Z”</b> in the <b>“Rotation”</b> card.</li>' +
             '<li>Name doesn’t fit? Make the letters smaller.</li></ul>',
         'namensschild.s6.t1': 'Text sits on the plate',
         'namensschild.s6.t2': 'Letters are flat (about 2 mm high)',
         'namensschild.s6.h1': 'Drag the text onto the plate',
         'namensschild.s6.h2': 'Height to 2 mm',
+        'namensschild.s6.t3': 'Name runs along the plate and fits on it',
+        'namensschild.s6.h3': 'Turn the text: press R twice or type 90 here',
+        'namensschild.s6.h4': 'Name too long? Make the width smaller',
 
         'namensschild.s7.title': 'A hole for the key ring',
         'namensschild.s7.text': '<p>In Layerling you make holes with a <b>Hole</b> shape: a shape that removes material.</p>' +
