@@ -119,3 +119,21 @@ test('alle Texte in de und en vorhanden', () => {
         keys.forEach(k => assert.ok(typeof m[k] === 'string' && m[k].length, `${lang}: ${k}`));
     }
 });
+
+test('Hinweise im Ablege-Modus zeigen auf die Arbeitsfläche', () => {
+    for (const [si, kind] of [[2, 'box'], [4, 'text'], [6, 'cylinder']]) {
+        const shapes = si === 2 ? [] : (si === 4 ? S.plate : S.plateText);
+        const hint = LK.flow.pickHint(ch.steps[si], ctx(shapes, {placingKind: kind}));
+        assert.equal(hint && hint.target, 'workplane', `Schritt ${si + 1}`);
+    }
+});
+
+test('S7: Loch muss ganz durch die Platte gehen (live gesehen: −9,5 bis 0,5 mm)', () => {
+    const shallow = [plate, text, {...hole, elevation: -9.5, height: 10}];
+    assert.ok(!done(6, shallow).includes(2), 'zu tief: nicht erledigt');
+    const onTop = [plate, text, {...hole, elevation: 3, height: 6}];
+    assert.ok(!done(6, onTop).includes(2), 'oben drauf: nicht erledigt');
+    passes(6, [plate, text, {...hole, elevation: 0, height: 3}]);
+    const hint = LK.flow.pickHint(ch.steps[6], ctx(shallow));
+    assert.equal(hint.target, 'toolbar:drop');
+});

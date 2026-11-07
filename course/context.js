@@ -9,7 +9,7 @@
 
     const isGroup = s => Array.isArray(s.groupedShapes);
 
-    function makeContext ({shapes, base, exportCount, panels, editorOpen, selection}) {
+    function makeContext ({shapes, base, exportCount, panels, editorOpen, selection, placingKind}) {
         const G = LK.geometry;
         const known = Array.isArray(shapes);
         const flat = known ? G.flatten(shapes) : [];
@@ -41,7 +41,8 @@
             onTop: (upper, lower, mm) => G.overlapXZ(upper, lower) && G.touchesTop(upper, lower, mm || 0),
             exported: () => (exportCount || 0) > ((base && base.exportCount) || 0),
             panelOpen: name => Boolean(panels && panels.has(name)),
-            selectedCount: () => (Array.isArray(selection) ? selection.length : 0)
+            selectedCount: () => (Array.isArray(selection) ? selection.length : 0),
+            placing: kind => Boolean(placingKind) && (!kind || placingKind === kind)
         };
     }
 

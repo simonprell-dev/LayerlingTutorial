@@ -45,6 +45,13 @@
         'transition.task.export': 'Fertiges Teil exportiert (falls du es drucken willst)',
         'transition.task.newDesign': 'Neuen 3D-Entwurf angelegt',
 
+        'kind.info': 'Info',
+        'kind.learn': 'Lernen',
+        'kind.creative': 'Kreativ',
+        'kind.game': 'Ausprobieren',
+        'kind.challenge': 'Challenge',
+        'kind.save': 'Sichern',
+
         'type.basics': 'Grundlagen',
         'type.sketch': 'Skizze',
         'type.body': 'Körper',
@@ -73,6 +80,7 @@
         'namensschild.s3.t1': 'Einen Quader auf die Arbeitsfläche gelegt',
         'namensschild.s3.h1': 'Klicke auf „Form hinzufügen“',
         'namensschild.s3.h2': 'Quader wählen, dann ablegen',
+        'namensschild.s3.h3': 'Jetzt auf die Fläche klicken',
 
         'namensschild.s4.title': 'Genaue Maße',
         'namensschild.s4.text': '<p>Ein Namensschild ist flach. Klicke den Quader an. Rechts erscheinen seine <b>Eigenschaften</b>.</p>' +
@@ -90,6 +98,7 @@
         'namensschild.s5.h1': 'Klicke auf „Form hinzufügen“',
         'namensschild.s5.h2': 'Text wählen, auf die Platte',
         'namensschild.s5.h3': 'Hier deinen Namen tippen',
+        'namensschild.s5.h4': 'Jetzt auf die Platte klicken',
 
         'namensschild.s6.title': 'Schrift auf die Platte',
         'namensschild.s6.text': '<p>Die Schrift soll <b>auf</b> der Platte liegen und nur wenig herausragen.</p>' +
@@ -106,15 +115,18 @@
             '<ul><li>Hol dir einen <b>„Zylinder“</b>.</li>' +
             '<li>Klicke rechts auf <b>„Aussparung“</b> – der Zylinder wird durchsichtig.</li>' +
             '<li>Mach ihn etwa <b>5 mm</b> dick und höher als die Platte.</li>' +
-            '<li>Schieb ihn an eine Ecke der Platte.</li></ul>',
+            '<li>Schieb ihn an eine Ecke der Platte.</li>' +
+            '<li>Schwebt er oder steckt zu tief? Klicke auf <b>„Auf die Arbeitsebene fallen lassen“</b> (Bereich <b>„Anordnen“</b>).</li></ul>',
         'namensschild.s7.t1': 'Zylinder ist eine Aussparung',
         'namensschild.s7.t2': 'Etwa 5 mm dick (3–8 mm)',
-        'namensschild.s7.t3': 'Sitzt an der Platte',
+        'namensschild.s7.t3': 'Sitzt an der Platte und geht ganz durch',
         'namensschild.s7.h1': 'Klicke auf „Form hinzufügen“',
         'namensschild.s7.h2': 'Zylinder wählen, ablegen',
         'namensschild.s7.h3': 'Auf „Aussparung“ klicken',
         'namensschild.s7.h4': 'Durchmesser etwa 5 mm',
         'namensschild.s7.h5': 'An eine Ecke schieben',
+        'namensschild.s7.h6': 'Neben die Platte klicken',
+        'namensschild.s7.h7': 'Auf die Arbeitsebene fallen lassen',
 
         'namensschild.s8.title': 'Alles zusammenfügen',
         'namensschild.s8.text': '<p>Noch sind es drei einzelne Formen. Erst beim <b>Gruppieren</b> verschmelzen sie: Die Schrift wächst aus der Platte, und die Aussparung schneidet das Loch.</p>' +
@@ -154,6 +166,7 @@
         'namensschild.s12.t2': 'Eigene Idee gebaut',
         'namensschild.s12.h1': 'Klicke auf „Form hinzufügen“',
         'namensschild.s12.h2': 'Fertiges Namensschild',
+        'namensschild.s12.h3': 'Auf die Fläche klicken',
 
         // ---------- Kapitel 2–6: angekündigt ----------
         'lesezeichen.title': 'Lesezeichen mit eigener Form',

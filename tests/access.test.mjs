@@ -79,3 +79,13 @@ test('getLanguage liest layerling.language', () => {
     w.localStorage.setItem('layerling.language', 'de');
     assert.equal(w.LK.access.getLanguage(), 'de');
 });
+
+test('placingKind: Form an der Maus (cruiseAsset)', () => {
+    const a = fresh();
+    const viewport = {tag: 0, memoizedProps: {shapes: [], selectedIds: [], cruiseAsset: {id: 'x', kind: 'cylinder'}}, child: null, sibling: null};
+    a.findShapesInFiber({child: viewport});
+    assert.equal(a.lastPlacingKind(), 'cylinder');
+    viewport.memoizedProps = {shapes: [], selectedIds: [], cruiseAsset: null};
+    a.findShapesInFiber({child: viewport});
+    assert.equal(a.lastPlacingKind(), null);
+});

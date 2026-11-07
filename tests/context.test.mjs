@@ -67,3 +67,11 @@ test('selectedCount aus der Auswahl', () => {
     assert.equal(ctx(S.plateTextHole, undefined, {selection: ['p', 't', 'h']}).selectedCount(), 3);
     assert.equal(ctx(S.plateTextHole).selectedCount(), 0);
 });
+
+test('placing: Ablege-Modus mit und ohne Formart', () => {
+    const c = ctx([], undefined, {placingKind: 'box'});
+    assert.equal(c.placing(), true);
+    assert.equal(c.placing('box'), true);
+    assert.equal(c.placing('text'), false);
+    assert.equal(ctx([]).placing(), false);
+});

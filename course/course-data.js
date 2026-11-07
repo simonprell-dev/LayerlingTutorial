@@ -36,7 +36,14 @@
 
     const holeCylinders = c => c.holes('cylinder');
     const goodHole = (c, s) => between(c.size(s).long, 3, 8) && between(c.size(s).short, 3, 8);
-    const holeAtPlate = c => holeCylinders(c).some(h => goodHole(c, h) && plates(c).some(p => c.near(h, p, 0)));
+    const G = () => LK.geometry;
+    const holeAtPlate = c => holeCylinders(c).some(h => plates(c).some(p => G().overlapXZ(h, p)));
+    // Das Loch muss die Platte ganz durchdringen (live gesehen: ein Zylinder landete bei −9,5 bis 0,5 mm).
+    const holeThrough = c => holeCylinders(c).some(h => goodHole(c, h) && plates(c).some(p => {
+        const H = G().bounds(h);
+        const P = G().bounds(p);
+        return G().overlapXZ(h, p) && H.minY <= P.minY + 0.3 && H.maxY >= P.maxY - 0.3;
+    }));
 
     const grouped = c => c.groups().some(g =>
         g.members.some(s => isPlate(c, s)) && g.members.some(isOwnText) && g.members.some(s => s.hole && s.kind === 'cylinder'));
@@ -78,8 +85,9 @@
                 text: k(3, 'text'),
                 tasks: [{text: k(3, 't1'), check: c => newOf(c, 'box')}],
                 hints: [
-                    {target: 'addShape', text: k(3, 'h1'), done: c => c.panelOpen('shapes') || newOf(c, 'box')},
-                    {target: 'libItem:box', text: k(3, 'h2'), done: c => newOf(c, 'box')}
+                    {target: 'addShape', text: k(3, 'h1'), done: c => c.panelOpen('shapes') || c.placing() || newOf(c, 'box')},
+                    {target: 'libItem:box', text: k(3, 'h2'), done: c => c.placing('box') || newOf(c, 'box')},
+                    {target: 'workplane', text: k(3, 'h3'), done: c => newOf(c, 'box')}
                 ]
             },
             {
@@ -98,8 +106,9 @@
                 text: k(5, 'text'),
                 tasks: [{text: k(5, 't1'), check: c => ownTexts(c).length > 0}],
                 hints: [
-                    {target: 'addShape', text: k(5, 'h1'), done: c => c.panelOpen('shapes') || newOf(c, 'text')},
-                    {target: 'libItem:text', text: k(5, 'h2'), done: c => newOf(c, 'text')},
+                    {target: 'addShape', text: k(5, 'h1'), done: c => c.panelOpen('shapes') || c.placing() || newOf(c, 'text')},
+                    {target: 'libItem:text', text: k(5, 'h2'), done: c => c.placing('text') || newOf(c, 'text')},
+                    {target: 'workplane', text: k(5, 'h4'), done: c => newOf(c, 'text')},
                     {target: 'inspector:text', text: k(5, 'h3'), done: c => ownTexts(c).length > 0}
                 ]
             },
@@ -123,14 +132,16 @@
                 tasks: [
                     {text: k(7, 't1'), check: c => holeCylinders(c).length > 0},
                     {text: k(7, 't2'), check: c => holeCylinders(c).some(h => goodHole(c, h))},
-                    {text: k(7, 't3'), check: holeAtPlate}
+                    {text: k(7, 't3'), check: holeThrough}
                 ],
                 hints: [
-                    {target: 'addShape', text: k(7, 'h1'), done: c => c.panelOpen('shapes') || c.shapes('cylinder').length > 0},
-                    {target: 'libItem:cylinder', text: k(7, 'h2'), done: c => c.shapes('cylinder').length > 0},
+                    {target: 'addShape', text: k(7, 'h1'), done: c => c.panelOpen('shapes') || c.placing() || c.shapes('cylinder').length > 0},
+                    {target: 'libItem:cylinder', text: k(7, 'h2'), done: c => c.placing('cylinder') || c.shapes('cylinder').length > 0},
+                    {target: 'workplane', text: k(7, 'h6'), done: c => c.shapes('cylinder').length > 0},
                     {target: 'inspector:hole', text: k(7, 'h3'), done: c => holeCylinders(c).length > 0},
                     {target: 'inspector:size', text: k(7, 'h4'), done: c => holeCylinders(c).some(h => goodHole(c, h))},
-                    {target: 'workplane', text: k(7, 'h5'), done: holeAtPlate}
+                    {target: 'workplane', text: k(7, 'h5'), done: holeAtPlate},
+                    {target: 'toolbar:drop', text: k(7, 'h7'), done: holeThrough}
                 ]
             },
             {
@@ -179,8 +190,9 @@
                     {text: k(12, 't2'), manual: true}
                 ],
                 hints: [
-                    {target: 'addShape', text: k(12, 'h1'), done: c => c.panelOpen('shapes') || c.newShapes().length > 0},
-                    {target: 'libItem:nameTag', text: k(12, 'h2'), done: c => c.newShapes().length > 0}
+                    {target: 'addShape', text: k(12, 'h1'), done: c => c.panelOpen('shapes') || c.placing() || c.newShapes().length > 0},
+                    {target: 'libItem:nameTag', text: k(12, 'h2'), done: c => c.placing() || c.newShapes().length > 0},
+                    {target: 'workplane', text: k(12, 'h3'), done: c => c.newShapes().length > 0}
                 ]
             }
         ]

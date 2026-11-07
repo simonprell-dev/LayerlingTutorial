@@ -45,6 +45,13 @@
         'transition.task.export': 'Exported the finished part (if you want to print it)',
         'transition.task.newDesign': 'Created a new 3D design',
 
+        'kind.info': 'Info',
+        'kind.learn': 'Learn',
+        'kind.creative': 'Create',
+        'kind.game': 'Try it',
+        'kind.challenge': 'Challenge',
+        'kind.save': 'Save',
+
         'type.basics': 'Basics',
         'type.sketch': 'Sketch',
         'type.body': 'Bodies',
@@ -73,6 +80,7 @@
         'namensschild.s3.t1': 'Put a box on the workplane',
         'namensschild.s3.h1': 'Click “Add shape”',
         'namensschild.s3.h2': 'Pick Box, then place it',
+        'namensschild.s3.h3': 'Now click the workplane',
 
         'namensschild.s4.title': 'Exact sizes',
         'namensschild.s4.text': '<p>A name tag is flat. Click the box. Its <b>Properties</b> appear on the right.</p>' +
@@ -90,6 +98,7 @@
         'namensschild.s5.h1': 'Click “Add shape”',
         'namensschild.s5.h2': 'Pick Text, click the plate',
         'namensschild.s5.h3': 'Type your name here',
+        'namensschild.s5.h4': 'Now click the plate',
 
         'namensschild.s6.title': 'Letters on the plate',
         'namensschild.s6.text': '<p>The letters should sit <b>on</b> the plate and stick out only a little.</p>' +
@@ -106,15 +115,18 @@
             '<ul><li>Get a <b>“Cylinder”</b>.</li>' +
             '<li>On the right, click <b>“Hole”</b> – the cylinder turns see-through.</li>' +
             '<li>Make it about <b>5 mm</b> wide and taller than the plate.</li>' +
-            '<li>Move it to a corner of the plate.</li></ul>',
+            '<li>Move it to a corner of the plate.</li>' +
+            '<li>Floating or sunk too deep? Click <b>“Drop to workplane”</b> (in the <b>“Arrange”</b> section).</li></ul>',
         'namensschild.s7.t1': 'Cylinder is a hole',
         'namensschild.s7.t2': 'About 5 mm wide (3–8 mm)',
-        'namensschild.s7.t3': 'Sits on the plate',
+        'namensschild.s7.t3': 'Sits on the plate and goes all the way through',
         'namensschild.s7.h1': 'Click “Add shape”',
         'namensschild.s7.h2': 'Pick Cylinder, place it',
         'namensschild.s7.h3': 'Click “Hole”',
         'namensschild.s7.h4': 'Diameter about 5 mm',
         'namensschild.s7.h5': 'Move it to a corner',
+        'namensschild.s7.h6': 'Click next to the plate',
+        'namensschild.s7.h7': 'Drop to workplane',
 
         'namensschild.s8.title': 'Put it all together',
         'namensschild.s8.text': '<p>Right now these are three separate shapes. <b>Grouping</b> merges them: the letters grow out of the plate and the hole cuts through.</p>' +
@@ -154,6 +166,7 @@
         'namensschild.s12.t2': 'Built my own idea',
         'namensschild.s12.h1': 'Click “Add shape”',
         'namensschild.s12.h2': 'Ready-made name tag',
+        'namensschild.s12.h3': 'Click the workplane',
 
         // ---------- Chapters 2–6: announced ----------
         'lesezeichen.title': 'Bookmark with your own shape',
