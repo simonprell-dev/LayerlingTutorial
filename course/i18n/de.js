@@ -175,11 +175,11 @@
         'namensschild.s12.h2': 'Fertiges Namensschild',
         'namensschild.s12.h3': 'Auf die Fläche klicken',
 
-        // ---------- Kapitel 2–6: angekündigt ----------
+        // ---------- Kapitel 2–6: Titel und Beschreibung (Schritte: course/i18n/de/<kapitel>.js) ----------
         'lesezeichen.title': 'Lesezeichen mit eigener Form',
         'lesezeichen.desc': 'Eigene Umrisse skizzieren, Ecken runden, herausziehen und Text eingravieren.',
         'stiftebecher.title': 'Stiftebecher',
-        'stiftebecher.desc': 'Körper aushöhlen, Lochmuster rundherum, Kanten abrunden.',
+        'stiftebecher.desc': 'Körper aushöhlen, Rand abrunden, Lochmuster rundherum.',
         'handystaender.title': 'Handyständer',
         'handystaender.desc': 'Profil mit Winkel skizzieren, Fasen und die Überhang-Warnung nutzen.',
         'schraubdose.title': 'Dose mit Schraubdeckel',

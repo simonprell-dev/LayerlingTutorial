@@ -13,7 +13,9 @@
         const G = LK.geometry;
         const known = Array.isArray(shapes);
         const flat = known ? G.flatten(shapes) : [];
-        const parts = flat.filter(e => !isGroup(e.shape));
+        // Vorschau-Formen (z. B. offenes Lochmuster-Fenster: hole-pattern-preview-<n>) sind noch nicht da.
+        const isPreview = s => Boolean(s.previewOnly) || /^hole-pattern-preview-/.test(String(s.id));
+        const parts = flat.filter(e => !isGroup(e.shape) && !isPreview(e.shape));
         const groupIdsOf = new Map(flat.map(e => [e.shape, e.groupIds]));
         const baseIds = new Set((base && base.ids) || []);
         const ofKind = (list, kind) => (kind ? list.filter(s => s.kind === kind) : list);

@@ -75,3 +75,10 @@ test('placing: Ablege-Modus mit und ohne Formart', () => {
     assert.equal(c.placing('text'), false);
     assert.equal(ctx([]).placing(), false);
 });
+
+test('Vorschau-Formen (offenes Lochmuster-Fenster) zählen nicht', () => {
+    const preview = {id: 'hole-pattern-preview-0', kind: 'cylinder', hole: true, x: 0, z: 0, elevation: 0, width: 5, depth: 5, height: 5};
+    const c = ctx([...S.plate, preview, {...preview, id: 'x', previewOnly: true}]);
+    assert.deepEqual(plain(c.shapes().map(s => s.id)), ['p']);
+    assert.equal(c.holes().length, 0);
+});

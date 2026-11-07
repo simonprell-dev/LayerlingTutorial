@@ -54,7 +54,7 @@ Direkt nutzbar: `LK.geometry.bounds(s)` → `{minX, maxX, minY, maxY, minZ, maxZ
 
 Formobjekt (Layerling): `{id, kind, hole?, x, z, elevation, width, depth, height, rotation, text?}`
 – `x/z` Mitte, `elevation` Unterkante, mm. Formarten u. a. `box`, `roundedBox`, `cylinder`,
-`text`, `sphere`, `cone`, `tube`, `thread`, `gear`, `sketch`, `mesh` (Gruppe).
+`text`, `sphere`, `cone`, `tube`, `thread`, `gear`, `polygon`, `mesh` (Gruppe, ausgehöhlte Form oder Skizzenkörper mit `sketchProfile`).
 
 ## Hinweis-Ziele (`LK.access.TARGETS`)
 
@@ -74,3 +74,11 @@ Formobjekt (Layerling): `{id, kind, hole?, x, z, elevation, width, depth, height
 
 Neues Werkzeug-Ziel: in `TARGETS` `'toolbar:<name>': () => tool('<name>')` ergänzen, `<name>` =
 `data-layerling-tool`-Wert (Liste in `docs/layerling-interna.md`).
+
+## Kapitel-Dateien (ab Kapitel 2)
+
+Jedes Kapitel liegt in eigenen Dateien: `course/chapters/<id>.js` (Struktur und Prüfungen),
+`course/i18n/<sprache>/<id>.js` (Texte), `lib/targets/<id>.js` (zusätzliche Ziele über
+`LK.access.dom`), `tests/chapter-<id>.test.mjs`. Die Skriptliste steht nur in `background.js`
+(`CHAPTERS`); Tests und `npm run check` lesen sie von dort. `toolbar:<werkzeug>` (alle Werte in
+`LK.access.TOOLS`) und `libItem:<art>` sind ohne Eintrag bekannte Ziele.

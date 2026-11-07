@@ -41,13 +41,13 @@ Die Erklärlogik stammt aus dem [Einführungskurs für Scratch](https://simonpre
 | # | Kapitel | Stufe | Was man lernt |
 |---|---|---|---|
 | 1 | 🏷️ **Dein Namensschild** | Neu dabei | Formen holen, Maße eintippen, Text auf eine Platte setzen, Aussparung als Loch, gruppieren, als STL exportieren |
-| 2 | 🔖 Lesezeichen mit eigener Form | Schon mal 3D gemacht | *kommt bald:* Skizze, Ecken runden, herausziehen, Text gravieren |
-| 3 | ✏️ Stiftebecher | Schon mal 3D gemacht | *kommt bald:* aushöhlen, Lochmuster, Kanten runden |
-| 4 | 📱 Handyständer | Ich kenne Tinkercad o. Ä. | *kommt bald:* Profil-Skizze mit Winkel, Fasen, Überhang-Warnung |
-| 5 | 🫙 Dose mit Schraubdeckel | Ich kenne Tinkercad o. Ä. | *kommt bald:* Gewinde, Spiel zwischen Teilen, messen |
-| 6 | ⚙️ Kurbel-Getriebe | Ich kenne Tinkercad o. Ä. | *kommt bald:* Zahnräder, Achsen, mehrere Druckplatten |
+| 2 | 🔖 **Lesezeichen mit eigener Form** | Schon mal 3D gemacht | Skizze, eigene Umrissform, Ecken verrunden, extrudieren, Namen eingravieren |
+| 3 | ✏️ **Stiftebecher** | Schon mal 3D gemacht | Aushöhlen, Rand abrunden, Lochmuster rundherum |
+| 4 | 📱 **Handyständer** | Ich kenne Tinkercad o. Ä. | Profil mit Länge<Winkel skizzieren, fasen, aufstellen, Druck-Prüfung (Überhänge) |
+| 5 | 🫙 **Dose mit Schraubdeckel** | Ich kenne Tinkercad o. Ä. | Aushöhlen, Schraubdeckel mit Gewinde und Spiel, messen, ausrichten, Spiel prüfen |
+| 6 | ⚙️ **Kurbel-Getriebe** | Ich kenne Tinkercad o. Ä. | Zahnräder mit Modul, Achsabstand, Achsen mit Spiel, Kurbel, mehrere Druckplatten |
 
-Version 0.1.0: Kapitel 1 mit 12 Schritten ist fertig, die Kapitel 2–6 sind angekündigt.
+Version 0.1.0: alle sechs Kapitel mit zusammen 63 Schritten.
 
 ## Installation
 
@@ -140,7 +140,7 @@ MIT – siehe [LICENSE](LICENSE). Danke an das Layerling-Team für einen freien,
 **Intro Course for Layerling** is a free browser extension (Chrome, Edge, Brave) that adds a
 guided 3D design course right inside the [Layerling](https://layerling.com/) web CAD, for ages
 8 to 99. A pointing hand shows where to click, tasks tick themselves off when done, and every
-chapter ends with a printable part. Chapter 1 (“Your name tag”) is available now, chapters 2–6
-are announced. The course follows Layerling’s language setting (German and English so far; other
+chapter ends with a printable part. Six chapters are available: name tag, bookmark,
+pen holder, phone stand, jar with screw lid and crank gearbox. The course follows Layerling’s language setting (German and English so far; other
 languages are a single translation file). No account, no server, no data collection.
 Independent project, not affiliated with Layerling.

@@ -175,11 +175,11 @@
         'namensschild.s12.h2': 'Ready-made name tag',
         'namensschild.s12.h3': 'Click the workplane',
 
-        // ---------- Chapters 2–6: announced ----------
+        // ---------- Chapters 2–6: title and description (steps: course/i18n/en/<chapter>.js) ----------
         'lesezeichen.title': 'Bookmark with your own shape',
         'lesezeichen.desc': 'Sketch your own outline, round the corners, extrude it and engrave text.',
         'stiftebecher.title': 'Pen holder',
-        'stiftebecher.desc': 'Hollow out a body, add a hole pattern all around, round the edges.',
+        'stiftebecher.desc': 'Hollow out a body, round the rim, add a hole pattern all around.',
         'handystaender.title': 'Phone stand',
         'handystaender.desc': 'Sketch a profile with an angle, add chamfers and use the overhang warning.',
         'schraubdose.title': 'Jar with a screw lid',

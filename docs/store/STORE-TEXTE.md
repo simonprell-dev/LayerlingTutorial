@@ -19,8 +19,9 @@ hast. Am Ende jedes Kapitels steht ein fertiges Teil, das du drucken kannst.
 
 ✔ Kapitel 1 „Dein Namensschild“: Formen holen, genaue Maße eintippen, Text auf eine Platte
   setzen, ein Loch für den Schlüsselring bauen, gruppieren und als STL exportieren.
-✔ Weitere Kapitel angekündigt: Lesezeichen, Stiftebecher, Handyständer, Dose mit
-  Schraubdeckel, Kurbel-Getriebe.
+✔ Fünf weitere Kapitel: Lesezeichen (Skizze, Gravur), Stiftebecher (aushöhlen, Lochmuster),
+  Handyständer (Winkel, Fasen, Überhänge), Dose mit Schraubdeckel (Gewinde, Spiel) und
+  Kurbel-Getriebe (Zahnräder, Achsabstand, Druckplatten).
 ✔ Drei Einstiegsstufen – von „Neu dabei“ bis „Ich kenne Tinkercad“.
 ✔ Großzügige, automatische Prüfungen mit Konfetti.
 ✔ Deutsch und Englisch – der Kurs folgt der Sprache von Layerling.
@@ -52,7 +53,9 @@ a part you can print.
 
 ✔ Chapter 1 “Your name tag”: add shapes, type exact sizes, put text on a plate, make a hole
   for a key ring, group and export as STL.
-✔ More chapters announced: bookmark, pen holder, phone stand, jar with screw lid, crank gearbox.
+✔ Five more chapters: bookmark (sketch, engraving), pen holder (hollow, hole pattern),
+  phone stand (angles, chamfers, overhangs), jar with screw lid (threads, clearance) and
+  crank gearbox (gears, centre distance, build plates).
 ✔ Three starting levels – from “New to this” to “I know Tinkercad”.
 ✔ Generous automatic checks with confetti.
 ✔ German and English – the course follows Layerling's language.

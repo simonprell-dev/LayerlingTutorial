@@ -11,7 +11,17 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
   Ich kenne Tinkercad o. Ä.), Fortschritt im Browser, Konfetti.
 - Kapitel 1 „Dein Namensschild“ mit 12 Schritten: Quader, genaue Maße, Text auf der Platte,
   Aussparung als Loch, gruppieren, STL-Export, Challenge, Bonus-Werkzeug „Namensschild“.
-- Kapitel 2–6 in der Übersicht angekündigt.
+- Kapitel 2 „Lesezeichen mit eigener Form“ (11 Schritte): Skizze, eigene Umrissform, Ecken
+  verrunden, extrudieren, Namen als Aussparung eingravieren.
+- Kapitel 3 „Stiftebecher“ (9 Schritte): Aushöhlen, Rand verrunden, Lochmuster rundherum.
+- Kapitel 4 „Handyständer“ (9 Schritte): Profil mit Länge<Winkel skizzieren, Breite, Fasen,
+  aufstellen, Druck-Prüfung auf Überhänge.
+- Kapitel 5 „Dose mit Schraubdeckel“ (11 Schritte): Aushöhlen, Deckel-Werkzeug mit Gewinde,
+  Spiel und Steigung, messen und ausrichten, Spiel prüfen.
+- Kapitel 6 „Kurbel-Getriebe“ (11 Schritte): Zahnräder mit gleichem Modul, Achsabstand,
+  Grundplatte mit Achsen und Spiel, Kurbel, Teile auf mehrere Druckplatten.
+- Kurs erkennt Formen auch, solange Layerlings Skizze offen ist, und ignoriert Vorschau-Formen
+  offener Werkzeugfenster.
 - Schon offene Layerling-Tabs bekommen den Kurs direkt nach der Installation, beim Einschalten
   und beim Klick aufs Symbol – kein Neuladen nötig.
 - Kapitel 1, Schritt 6: neue Aufgabe „Name läuft längs über die Platte und passt drauf“ mit
