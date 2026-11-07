@@ -1,0 +1,14 @@
+/*
+ * Läuft auf layerling.com vor allen anderen Skripten (isolierte Welt, gleicher
+ * localStorage wie die Seite). Wurde der Lernfortschritt über das Symbol zurückgesetzt,
+ * während kein Layerling-Tab offen war, wird das hier nachgeholt.
+ */
+'use strict';
+
+chrome.storage.local.get('resetPending').then(({resetPending}) => {
+    if (!resetPending) return;
+    try {
+        localStorage.removeItem('layerling-kurs:v1');
+    } catch (e) { /* egal */ }
+    chrome.storage.local.remove('resetPending');
+});

@@ -1,0 +1,41 @@
+{
+  "extName": {
+    "message": "Einführungskurs für Layerling – 3D-Konstruieren lernen"
+  },
+  "extShortName": {
+    "message": "Einführungskurs für Layerling"
+  },
+  "extDescription": {
+    "message": "Geführter 3D-Kurs direkt im Web-CAD Layerling: Schritt für Schritt vom Namensschild zum eigenen Druckteil. Für 8 bis 99. Unabhängiges Projekt."
+  },
+  "menuEnabled": {
+    "message": "Erweiterung eingeschaltet"
+  },
+  "menuReset": {
+    "message": "Lernfortschritt zurücksetzen …"
+  },
+  "menuHelp": {
+    "message": "Hilfe und Anleitung"
+  },
+  "badgeOff": {
+    "message": "AUS"
+  },
+  "titleOn": {
+    "message": "Einführungskurs für Layerling\nKlick: Layerling öffnen · Rechtsklick: Einstellungen"
+  },
+  "titleOff": {
+    "message": "Einführungskurs für Layerling (ausgeschaltet)\nRechtsklick zum Einschalten"
+  },
+  "confirmReset": {
+    "message": "Lernfortschritt im Einführungskurs wirklich zurücksetzen?\n\nAlle abgehakten Schritte und die gewählte Stufe gehen verloren. Deine Layerling-Entwürfe bleiben erhalten."
+  },
+  "toastOn": {
+    "message": "Die Erweiterung ist eingeschaltet. Lade die Seite neu (F5), damit sie wirkt."
+  },
+  "toastOff": {
+    "message": "Die Erweiterung ist ausgeschaltet. Lade die Seite neu (F5), damit sie verschwindet."
+  },
+  "toastReset": {
+    "message": "Der Lernfortschritt wurde zurückgesetzt."
+  }
+}

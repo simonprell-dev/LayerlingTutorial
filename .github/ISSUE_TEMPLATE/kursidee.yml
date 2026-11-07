@@ -1,0 +1,16 @@
+name: 💡 Kursidee / Course idea
+description: Ein Kapitel, ein Projekt oder eine Verbesserung vorschlagen. / Suggest a chapter, project or improvement.
+labels: [kursidee]
+body:
+  - type: textarea
+    id: idee
+    attributes:
+      label: Idee / Idea
+      description: Was soll man bauen oder lernen? Für welche Stufe?
+    validations:
+      required: true
+  - type: textarea
+    id: werkzeuge
+    attributes:
+      label: Layerling-Werkzeuge / Layerling tools
+      description: Welche Werkzeuge würde das Kapitel einführen (z. B. Skizze, Aushöhlen, Gewinde)?

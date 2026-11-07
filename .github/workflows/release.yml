@@ -1,0 +1,45 @@
+name: Release
+
+# Ein Tag wie „v0.1.0“ erzeugt automatisch ein Release mit zwei ZIP-Dateien:
+#   einfuehrungskurs-layerling-vX.Y.Z.zip        zum Installieren von Hand (mit Ordner und README)
+#   einfuehrungskurs-layerling-vX.Y.Z-store.zip  zum Hochladen im Chrome Web Store / Edge Add-ons (manifest.json im Wurzelverzeichnis)
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Tests und Kursprüfung
+        run: npm test && npm run check
+      - name: Version im Manifest prüfen
+        run: |
+          v=$(node -p "require('./manifest.json').version")
+          test "v$v" = "$GITHUB_REF_NAME" || { echo "manifest.json hat Version $v, Tag ist $GITHUB_REF_NAME"; exit 1; }
+      - name: ZIP packen
+        run: |
+          mkdir -p dist/einfuehrungskurs-layerling
+          cp -r manifest.json background.js reset-pending.js icons _locales course lib LICENSE README.md dist/einfuehrungskurs-layerling/
+          cd dist && zip -r "einfuehrungskurs-layerling-$GITHUB_REF_NAME.zip" einfuehrungskurs-layerling
+      - name: Store-ZIP packen
+        run: |
+          cd dist/einfuehrungskurs-layerling
+          zip -r "../einfuehrungskurs-layerling-$GITHUB_REF_NAME-store.zip" . -x README.md
+      - name: Changelog-Abschnitt lesen
+        run: |
+          v="${GITHUB_REF_NAME#v}"
+          awk -v v="$v" '/^## \[/{p = index($0, "[" v "]") > 0; next} p' CHANGELOG.md > notes.md
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/einfuehrungskurs-layerling-${{ github.ref_name }}.zip
+            dist/einfuehrungskurs-layerling-${{ github.ref_name }}-store.zip
+          body_path: notes.md
