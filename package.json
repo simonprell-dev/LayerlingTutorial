@@ -1,0 +1,16 @@
+{
+  "name": "einfuehrungskurs-layerling",
+  "version": "0.1.0",
+  "description": "Browser-Erweiterung: geführter 3D-Konstruktionskurs direkt im Web-CAD Layerling – für 8 bis 99 Jahre",
+  "private": true,
+  "license": "MIT",
+  "keywords": ["layerling", "3d-druck", "cad", "3d-konstruieren", "tutorial", "schule", "makerspace", "browser-extension", "chrome-extension", "einfuehrungskurs"],
+  "type": "module",
+  "scripts": {
+    "test": "node --test \"tests/**/*.test.mjs\"",
+    "check": "node tools/check-course.mjs"
+  },
+  "repository": {"type": "git", "url": "https://github.com/simonprell-dev/layerlingExtention.git"},
+  "homepage": "https://simonprell-dev.github.io/layerlingExtention/",
+  "bugs": "https://github.com/simonprell-dev/layerlingExtention/issues"
+}
