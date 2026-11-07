@@ -110,7 +110,7 @@ https://simonprell-dev.github.io/layerlingExtention/#datenschutz
 
 ## Paket hochladen
 
-Die ZIP-Datei `einfuehrungskurs-layerling-v0.1.0.zip` entsteht automatisch beim Release
+Die ZIP-Datei `einfuehrungskurs-layerling-v0.1.0-store.zip` entsteht automatisch beim Release
 (GitHub → Releases → v0.1.0 → Assets) und kann direkt im Chrome-Entwickler-Dashboard und
 im Microsoft-Partner-Center (Edge Add-ons) hochgeladen werden.
 
