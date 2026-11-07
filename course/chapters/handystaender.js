@@ -21,8 +21,9 @@
 
     const isSketchBody = s => Boolean(s && !s.hole && s.sketchProfile && Array.isArray(s.sketchProfile.points) &&
         (!s.sketchOperation || s.sketchOperation === 'extrude'));
+    // Bewusst nicht über newShapes: Nach dem Skizzenmodus kann der Kurs den Ausgangsstand neu setzen
+    // (dann zählte der gerade gezeichnete Körper als „schon da“). Jeder Skizzenkörper zählt.
     const sketchBodies = c => c.shapes().filter(isSketchBody);
-    const newSketchBodies = c => c.newShapes().filter(isSketchBody);
 
     // Gerade Stücke des Profils (Hilfslinien zählen nicht; Kurven über ihre Endpunkte).
     function lines (s) {
@@ -146,7 +147,6 @@
     const printOk = c => sketchBodies(c).length > 0 && Boolean(printCheck().overhangOk);
 
     const hasBody = c => sketchBodies(c).length > 0;
-    const hasNewBody = c => newSketchBodies(c).length > 0;
 
     LK.chapters['handystaender'] = {
         id: 'handystaender',
@@ -161,7 +161,7 @@
                 title: k(1, 'title'),
                 text: k(1, 'text'),
                 labels: [
-                    {target: 'sketchTab', text: k(1, 'l1')},
+                    {target: 'sketch:tab', text: k(1, 'l1')},
                     {target: 'toolbar:chamfer', text: k(1, 'l2')},
                     {target: 'toolbar:print-check', text: k(1, 'l3')}
                 ]
@@ -171,15 +171,15 @@
                 title: k(2, 'title'),
                 text: k(2, 'text'),
                 tasks: [
-                    {text: k(2, 't1'), check: hasNewBody},
+                    {text: k(2, 't1'), check: hasBody},
                     {text: k(2, 't2'), check: backrestOk},
                     {text: k(2, 't3'), check: lipOk}
                 ],
                 hints: [
-                    {target: 'sketchTab', text: k(2, 'h1'), done: c => sketchMode() || hasNewBody(c)},
-                    {target: 'sketch:extrude', text: k(2, 'h2'), done: c => sketchDrawing() || hasNewBody(c)},
-                    {target: 'sketch:plate', text: k(2, 'h3'), done: c => draftClosed() || hasNewBody(c)},
-                    {target: 'sketch:finish', text: k(2, 'h4'), done: hasNewBody},
+                    {target: 'sketch:tab', text: k(2, 'h1'), done: c => sketchMode() || hasBody(c)},
+                    {target: 'sketch:extrude', text: k(2, 'h2'), done: c => sketchDrawing() || hasBody(c)},
+                    {target: 'sketch:plate', text: k(2, 'h3'), done: c => draftClosed() || hasBody(c)},
+                    {target: 'sketch:finish', text: k(2, 'h4'), done: hasBody},
                     {target: 'inspector:editSketch', text: k(2, 'h5'), done: profileOk}
                 ]
             },

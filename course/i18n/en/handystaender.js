@@ -42,7 +42,7 @@
             '<ul><li>Click the stand, then <b>“Chamfer”</b> in the <b>“Edges &amp; walls”</b> section.</li>' +
             '<li>Pick <b>“Top edges”</b>, <b>“Distance”</b> 1–2 mm.</li>' +
             '<li><b>“Apply”</b>, then <b>“Done”</b>.</li></ul>' +
-            '<p>Only the top, because the underside lies flat on the print bed. Rule of thumb: <b>never round</b> bottom edges – a rounded bottom edge sags. A bottom chamfer is exactly 45°, right at the limit; Layerling already reports it as an overhang.</p>' +
+            '<p>Only the top, because the underside lies flat on the print bed. Rule of thumb: <b>never round</b> bottom edges – a rounded bottom edge sags. And with <b>“All sharp edges”</b>, several chamfers meet in the bottom corners and form small overhangs there.</p>' +
             '<p>Careful: <b>“Edit sketch”</b> removes the chamfers again, because the edges are rebuilt.</p>',
         'handystaender.s4.t1': 'Edges chamfered by 1–3 mm',
         'handystaender.s4.h1': 'Click the stand',
@@ -63,13 +63,13 @@
         'handystaender.s6.title': 'Print check',
         'handystaender.s6.text': '<p>Lying on its profile, every wall goes straight up: nothing hangs in the air. And the layers run across backrest and base – so the backrest won’t snap off.</p>' +
             '<p>Open <b>“Print check”</b> (<b>“Combine”</b> section) and click <b>“Check”</b>. Layerling looks for thin walls, floating parts, little bed contact, <b>overhangs</b> and open meshes.</p>' +
-            '<p>If the <b>“Overhangs”</b> line reports something, you probably chamfered the bottom too. Take it back in the <b>“Chamfer”</b> tool with <b>“Undo an edge feature”</b> and chamfer only the top. After each change: <b>“Check again”</b>.</p>',
+            '<p>If the <b>“Overhangs”</b> line reports something, you probably chamfered <b>“All sharp edges”</b>. Take it back in the <b>“Chamfer”</b> tool with <b>“Undo an edge feature”</b> and chamfer only the top. After each change: <b>“Check again”</b>.</p>',
         'handystaender.s6.t1': 'Stand lies on its profile',
         'handystaender.s6.t2': 'Print check: no overhangs',
         'handystaender.s6.h1': 'Lay on profile: “About X” 0',
         'handystaender.s6.h2': 'Open “Print check”',
         'handystaender.s6.h3': 'Click “Check”',
-        'handystaender.s6.h4': 'Overhang? Undo the bottom chamfer',
+        'handystaender.s6.h4': 'Overhang? Undo chamfer, top only',
 
         'handystaender.s7.title': 'Save for the printer',
         'handystaender.s7.text': '<p>Click <b>“Export”</b> (or <b>Ctrl+E</b>), then <b>“Export STL”</b>.</p>' +

@@ -129,7 +129,7 @@ test('Profil gespiegelt, gedreht oder verschoben gezeichnet zählt genauso', () 
     passes(1, [mirrored]);
 });
 
-test('S2: Skizzenkörper neu, Lehne 55–80°, Lippe', () => {
+test('S2: Skizzenkörper, Lehne 55–80°, Lippe', () => {
     passes(1, S.body);
     passes(1, S.done);
     const d = doneOf(1, S.noLip);
@@ -139,9 +139,8 @@ test('S2: Skizzenkörper neu, Lehne 55–80°, Lippe', () => {
     fails(1, S.box);
     fails(1, S.revolve);
     fails(1, S.hole);
-    // alter Skizzenkörper: nicht „neu“
-    const old = LK.flow.evaluate(ch.steps[1], LK.makeContext({shapes: S.body, base: {ids: [body.id], exportCount: 0}, editorOpen: true}), []);
-    assert.ok(!plain(old.done).includes(0));
+    // Skizzenkörper zählt auch, wenn er schon zum Ausgangsstand gehört (Kurs setzt ihn nach dem Skizzenmodus neu)
+    passes(1, S.body, {base: {ids: [body.id], exportCount: 0}});
 });
 
 test('S3: Breite 60–90 mm (Extrusion = height)', () => {
@@ -196,7 +195,7 @@ test('S7: Export erkannt', () => {
 });
 
 test('S2-Hinweise folgen dem Skizzieren: Reiter → Extrudieren → Zeichnen → Abschließen → Bearbeiten', () => {
-    assert.equal(hint(1, []), 'sketchTab');
+    assert.equal(hint(1, []), 'sketch:tab');
     withUi({sketchMode: () => true}, () => assert.equal(hint(1, []), 'sketch:extrude'));
     withUi({sketchMode: () => true, sketchDrawing: () => true}, () => assert.equal(hint(1, []), 'sketch:plate'));
     withUi({sketchMode: () => true, sketchDrawing: () => true, draftClosed: () => true}, () => assert.equal(hint(1, []), 'sketch:finish'));
@@ -223,6 +222,7 @@ test('S5 (Spiel): erst aufstellen, dann „Auf Fläche legen“', () => {
     assert.equal(hint(4, [upright]), 'toolbar:layFlat');
 });
 
-test('alle Ziele des Kapitels sind in TARGETS eingetragen', () => {
-    ch.steps.forEach(s => [...(s.hints || []), ...(s.labels || [])].forEach(h => assert.ok(LK.access.TARGETS[h.target], h.target)));
+test('alle Ziele des Kapitels sind bekannt (TARGETS oder toolbar:<Werkzeug>)', () => {
+    const known = id => Boolean(LK.access.TARGETS[id]) || (id.startsWith('toolbar:') && LK.access.TOOLS.includes(id.slice(8)));
+    ch.steps.forEach(s => [...(s.hints || []), ...(s.labels || [])].forEach(h => assert.ok(known(h.target), h.target)));
 });

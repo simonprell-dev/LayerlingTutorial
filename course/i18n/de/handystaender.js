@@ -42,7 +42,7 @@
             '<ul><li>Ständer anklicken, dann im Bereich <b>„Kanten &amp; Wände“</b> auf <b>„Fase“</b>.</li>' +
             '<li><b>„Obere Kanten“</b> wählen, <b>„Abstand“</b> 1–2 mm.</li>' +
             '<li><b>„Anwenden“</b>, dann <b>„Fertig“</b>.</li></ul>' +
-            '<p>Nur oben, weil die Unterseite flach auf der Druckplatte liegt. Faustregel: Unterkanten <b>nie runden</b> – eine Rundung unten hängt durch. Eine Fase unten hat genau 45°, also die Grenze; Layerling meldet sie schon als Überhang.</p>' +
+            '<p>Nur oben, weil die Unterseite flach auf der Druckplatte liegt. Faustregel: Unterkanten <b>nie runden</b> – eine Rundung unten hängt durch. Und mit <b>„Alle scharfen Kanten“</b> stoßen unten in den Ecken mehrere Fasen zusammen; dort entstehen kleine Überhänge.</p>' +
             '<p>Achtung: <b>„Skizze bearbeiten“</b> löscht die Fasen wieder, weil die Kanten neu entstehen.</p>',
         'handystaender.s4.t1': 'Kanten mit 1–3 mm gefast',
         'handystaender.s4.h1': 'Ständer anklicken',
@@ -63,13 +63,13 @@
         'handystaender.s6.title': 'Druck prüfen',
         'handystaender.s6.text': '<p>Auf dem Profil liegend laufen alle Wände senkrecht nach oben: nichts hängt in der Luft. Und die Druckschichten gehen quer durch Lehne und Boden – so bricht die Lehne nicht ab.</p>' +
             '<p>Öffne <b>„Druck prüfen“</b> (Bereich <b>„Verbinden“</b>) und klicke auf <b>„Prüfen“</b>. Layerling sucht dünne Wände, schwebende Teile, wenig Halt, <b>Überhänge</b> und offene Netze.</p>' +
-            '<p>Meldet die Zeile <b>„Überhänge“</b> etwas, hast du wohl auch unten gefast. Nimm die Fase im Werkzeug <b>„Fase“</b> über <b>„Kantenbearbeitung zurücknehmen“</b> zurück und fase nur oben. Nach jeder Änderung: <b>„Neu prüfen“</b>.</p>',
+            '<p>Meldet die Zeile <b>„Überhänge“</b> etwas, hast du wohl <b>„Alle scharfen Kanten“</b> gefast. Nimm die Fase im Werkzeug <b>„Fase“</b> über <b>„Kantenbearbeitung zurücknehmen“</b> zurück und fase nur oben. Nach jeder Änderung: <b>„Neu prüfen“</b>.</p>',
         'handystaender.s6.t1': 'Ständer liegt auf seinem Profil',
         'handystaender.s6.t2': 'Druck prüfen: keine Überhänge',
         'handystaender.s6.h1': 'Aufs Profil legen: „Um X“ 0',
         'handystaender.s6.h2': '„Druck prüfen“ öffnen',
         'handystaender.s6.h3': 'Auf „Prüfen“ klicken',
-        'handystaender.s6.h4': 'Überhang? Untere Fase zurücknehmen',
+        'handystaender.s6.h4': 'Überhang? Fase zurücknehmen, nur oben',
 
         'handystaender.s7.title': 'Für den Drucker speichern',
         'handystaender.s7.text': '<p>Klicke auf <b>„Exportieren“</b> (oder <b>Strg+E</b>) und dann auf <b>„STL exportieren“</b>.</p>' +
