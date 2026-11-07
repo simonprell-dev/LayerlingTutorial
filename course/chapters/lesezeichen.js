@@ -44,24 +44,36 @@
         const tabs = [...doc.querySelectorAll('.toolbar-workspace-tabs [role=tab]')];
         const active = tabs.findIndex(t => t.getAttribute('aria-selected') === 'true');
         const view = {tab: active === 1 ? 'sketch' : (active === 0 ? 'geometry' : null), sketch: null};
-        if (doc.querySelector('.sketch-workspace-stage')) {
-            const stack = [fiberRoot(doc)].filter(Boolean);
-            let visited = 0;
-            while (stack.length && visited < 50000) {
-                const f = stack.pop();
-                visited++;
-                const p = f.memoizedProps;
-                if (p && typeof p === 'object' && p.profile && Array.isArray(p.profile.points) && 'tool' in p && 'selected' in p) {
-                    // Das Radius-Feld steht auch im DOM (live einmal ohne cornerDialog-Prop gesehen).
-                    const dialog = p.cornerDialog || (doc.querySelector('.sketch-corner-dialog') ? 'open' : null);
-                    view.sketch = {profile: p.profile, tool: p.tool, selected: p.selected, cornerDialog: dialog};
-                    break;
+        const stage = doc.querySelector('.sketch-workspace-stage');
+        let full = false;
+        if (stage) {
+            const isSketch = p => p && typeof p === 'object' && p.profile && Array.isArray(p.profile.points) && 'tool' in p && 'selected' in p;
+            // Schnell: von der Skizzen-Bühne aus nach oben – die Skizzen-Komponente ist ein Vorfahre.
+            let props = null;
+            const key = Object.keys(stage).find(k => k.startsWith('__reactFiber$'));
+            for (let f = key ? stage[key] : null, n = 0; f && n < 200 && !props; f = f.return, n++) {
+                if (isSketch(f.memoizedProps)) props = f.memoizedProps;
+            }
+            // Rückfall: ganzer Baum (teuer, daher länger zwischengespeichert).
+            if (!props) {
+                full = true;
+                const stack = [fiberRoot(doc)].filter(Boolean);
+                let visited = 0;
+                while (stack.length && visited < 50000 && !props) {
+                    const f = stack.pop();
+                    visited++;
+                    if (isSketch(f.memoizedProps)) props = f.memoizedProps;
+                    if (f.sibling) stack.push(f.sibling);
+                    if (f.child) stack.push(f.child);
                 }
-                if (f.sibling) stack.push(f.sibling);
-                if (f.child) stack.push(f.child);
+            }
+            if (props) {
+                // Das Radius-Feld steht auch im DOM (live einmal ohne cornerDialog-Prop gesehen).
+                const dialog = props.cornerDialog || (doc.querySelector('.sketch-corner-dialog') ? 'open' : null);
+                view.sketch = {profile: props.profile, tool: props.tool, selected: props.selected, cornerDialog: dialog};
             }
         }
-        cache = {at: now, view};
+        cache = {at: full ? now + 800 : now, view};
         return view;
     }
 

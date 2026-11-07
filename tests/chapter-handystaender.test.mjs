@@ -150,6 +150,11 @@ test('S3: Breite 60–90 mm (Extrusion = height)', () => {
     fails(2, S.thin);
     fails(2, S.huge);
     fails(2, S.box);
+    // Review W4: „Proportionen beibehalten“ an → ganzes Profil wächst mit (Boden 80 → 560 mm).
+    fails(2, [{...wide, width: wide.width * 7, depth: wide.depth * 7}]);
+    const hint = LK.flow.pickHint(ch.steps[2], LK.makeContext({shapes: [body], base: {ids: [], exportCount: 0}, exportCount: 0,
+        panels: new Set(['inspector', 'proportionsLocked']), editorOpen: true, selection: []}));
+    assert.equal(hint && hint.target, 'inspector:keepProportions');
 });
 
 test('S4: Fase 0,5–3,5 mm', () => {

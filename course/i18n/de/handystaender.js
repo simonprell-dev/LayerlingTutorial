@@ -32,10 +32,12 @@
         'handystaender.s3.title': 'Breite festlegen',
         'handystaender.s3.text': '<p>Der Körper ist erst 10 mm dick: So weit hat Layerling das Profil nach oben gezogen.</p>' +
             '<p>Klicke ihn an. Im Fenster <b>„Eigenschaften“</b> ist <b>„Höhe“</b> die Extrusion – hier also die <b>Breite</b> des Ständers. Tippe <b>70</b> ein; 60–90 mm passt für die meisten Handys.</p>' +
+            '<p>Ist <b>„Proportionen beibehalten“</b> angehakt, wächst das ganze Profil mit – nimm den Haken vorher raus.</p>' +
             '<p>Der Ständer liegt dabei auf der Seite. Das ist Absicht – warum, siehst du gleich.</p>',
         'handystaender.s3.t1': 'Ständer ist 60–90 mm breit',
         'handystaender.s3.h1': 'Ständer anklicken',
         'handystaender.s3.h2': 'Höhe = Breite: 70',
+        'handystaender.s3.h3': 'Haken hier zuerst rausnehmen',
 
         'handystaender.s4.title': 'Kanten fasen',
         'handystaender.s4.text': '<p>Scharfe Kanten drücken in die Hand und brechen leicht aus. Eine <b>Fase</b> schneidet sie schräg ab.</p>' +

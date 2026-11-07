@@ -239,11 +239,9 @@
                 kind: 'learn',
                 title: k(6, 'title'),
                 text: k(6, 'text'),
-                tasks: [
-                    {text: k(6, 't1'), check: spaced},
-                    {text: k(6, 't2'), check: inLine},
-                    {text: k(6, 't3'), check: onPlate}
-                ],
+                // Nach „Deckel machen“ liegt der Deckel schon mittig auf der Platte (Review): eine Aufgabe,
+                // die Ausrichten-Hinweise erscheinen nur, wenn er beim Verschieben verrutscht.
+                tasks: [{text: k(6, 't1'), check: c => spaced(c) && inLine(c) && onPlate(c)}],
                 hints: [
                     {target: 'schraubdose:tape', text: k(6, 'h1'), done: spaced},
                     {target: 'workplane', text: k(6, 'h2'), done: c => c.selectedCount() >= 2 || inLine(c)},

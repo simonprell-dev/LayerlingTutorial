@@ -161,7 +161,8 @@
                     {text: kb(2, 't2'), check: cupMade}
                 ],
                 hints: [
-                    {target: 'newDesign', text: kb(2, 'h1'), done: c => c.editorOpen},
+                    // Review: auch zeigen, wenn noch der alte Entwurf offen ist (sonst hängt t1 ohne Hinweis).
+                    {target: 'newDesign', text: kb(2, 'h1'), done: c => c.editorOpen && c.newShapes().length === c.shapes().length},
                     {target: 'addShape', text: kb(2, 'h2'), done: c => c.panelOpen('shapes') || c.placing() || newCylinder(c) || cupMade(c)},
                     {target: 'libItem:cylinder', text: kb(2, 'h3'), done: c => c.placing('cylinder') || newCylinder(c) || cupMade(c)},
                     {target: 'workplane', text: kb(2, 'h4'), done: c => newCylinder(c) || cupMade(c)},

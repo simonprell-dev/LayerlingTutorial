@@ -116,3 +116,20 @@ test('Skizzenmodus: 3D-Ansicht abgebaut → letzter bekannter Formenstand (live 
     sketch = true;
     assert.equal(a.getShapes().length, 1, 'in der Skizze: letzter Stand');
 });
+
+test('Review W1: Skizze ohne gemerkten Stand → leer statt unlesbar; anderes Projekt → nicht der alte Stand', () => {
+    const view = {tag: 0, memoizedProps: {shapes: [{id: 'a', kind: 'box'}], selectedIds: []}, child: null, sibling: null};
+    const root = {child: null, return: null};
+    let sketch = true;
+    const loc = {search: '?editor=1&project=p1'};
+    const doc = {body: {'__reactFiber$x': {return: root}}, querySelector: sel => (sel === '.sketch-workspace-stage' && sketch ? {} : null),
+        querySelectorAll: () => [], addEventListener: () => {}};
+    const a = load(['lib/layerling-access.js'], {document: doc, location: loc}).LK.access;
+    assert.deepEqual([...a.getShapes()], [], 'Skizze nach Neuladen: leer, nicht null');
+    sketch = false; root.child = view;
+    assert.equal(a.getShapes().length, 1);
+    sketch = true;
+    assert.equal(a.getShapes().length, 1, 'gleiches Projekt: letzter Stand');
+    loc.search = '?editor=1&project=p2';
+    assert.deepEqual([...a.getShapes()], [], 'anderes Projekt: nicht der alte Stand');
+});

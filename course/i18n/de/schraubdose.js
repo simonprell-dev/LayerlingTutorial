@@ -60,10 +60,8 @@
         'schraubdose.s6.title': 'Messen und ausrichten',
         'schraubdose.s6.text': '<p>Zwei Teile auf einer Druckplatte: Sie dürfen sich nicht berühren, sollen aber nicht unnötig weit auseinanderliegen. Ziel: <b>5 mm Abstand</b>.</p>' +
             '<ul><li><b>Messen:</b> <b>„Maßband“</b> in der Ansichtsleiste links → <b>„Maß hinzufügen“</b> → Punkt am Dosenrand, Punkt am Deckelrand. In der Maßblase <b>5</b> eintippen – der Deckel rückt genau auf diesen Abstand. (Alternativ: X-Position unter <b>„Position“</b> eintippen.)</li>' +
-            '<li><b>Ausrichten:</b> beide wählen, <b>„Ausrichten“</b> (Bereich <b>„Anordnen“</b>, Taste <b>L</b>) und den Punkt „mittig“ quer zur Reihe anklicken.</li></ul>',
-        'schraubdose.s6.t1': 'Abstand Dose–Deckel 4–6 mm',
-        'schraubdose.s6.t2': 'Mittig auf einer Linie',
-        'schraubdose.s6.t3': 'Beide stehen auf der Platte',
+            '<li><b>Verrutscht?</b> Layerling legt den Deckel mittig neben die Dose. Ist er beim Verschieben aus der Linie geraten: beide wählen, <b>„Ausrichten“</b> (Bereich <b>„Anordnen“</b>, Taste <b>L</b>) und den Punkt „mittig“ quer zur Reihe anklicken.</li></ul>',
+        'schraubdose.s6.t1': 'Abstand 5 mm, mittig, auf der Platte',
         'schraubdose.s6.h1': '„Maßband“: 5 mm Abstand',
         'schraubdose.s6.h2': 'Dose und Deckel wählen',
         'schraubdose.s6.h3': 'Auf „Ausrichten“ klicken',

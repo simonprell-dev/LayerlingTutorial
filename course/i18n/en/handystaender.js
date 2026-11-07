@@ -32,10 +32,12 @@
         'handystaender.s3.title': 'Set the width',
         'handystaender.s3.text': '<p>The solid is only 10 mm thick: that’s how far Layerling pulled the profile up.</p>' +
             '<p>Click it. In <b>“Properties”</b>, <b>“Height”</b> is the extrusion – here, the <b>width</b> of the stand. Type <b>70</b>; 60–90 mm suits most phones.</p>' +
+            '<p>If <b>“Keep proportions”</b> is ticked, the whole profile grows too – untick it first.</p>' +
             '<p>The stand is lying on its side. That’s on purpose – you’ll see why in a moment.</p>',
         'handystaender.s3.t1': 'Stand is 60–90 mm wide',
         'handystaender.s3.h1': 'Click the stand',
         'handystaender.s3.h2': 'Height = width: 70',
+        'handystaender.s3.h3': 'Untick this first',
 
         'handystaender.s4.title': 'Chamfer the edges',
         'handystaender.s4.text': '<p>Sharp edges dig into your hand and chip easily. A <b>chamfer</b> cuts them off at an angle.</p>' +

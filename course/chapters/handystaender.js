@@ -116,7 +116,9 @@
     const profileOk = c => sketchBodies(c).some(s => hasBackrest(s) && hasLip(s));
 
     // Breite des Ständers = Extrusion (height, bleibt beim Drehen gleich): 60–90 mm, großzügig 55–95.
-    const wideOk = c => sketchBodies(c).some(s => between(s.height, 55, 95));
+    // Breite = Extrusion; das Profil selbst darf dabei nicht mitwachsen (Review: „Proportionen
+    // beibehalten“ an → Boden 80 → 560 mm, Kurs lief trotzdem durch).
+    const wideOk = c => sketchBodies(c).some(s => between(s.height, 55, 95) && between(Math.max(s.width, s.depth), 40, 160));
 
     // Fase 0,5–3,5 mm (auch „Fase + Rundung“).
     const isChamfered = s => (s.edgeTreatments || []).some(e => e && (e.kind === 'chamfer' || e.kind === 'chamfillet') && between(e.amount, 0.5, 3.5));
@@ -190,6 +192,7 @@
                 tasks: [{text: k(3, 't1'), check: wideOk}],
                 hints: [
                     {target: 'workplane', text: k(3, 'h1'), done: c => c.panelOpen('inspector') || wideOk(c)},
+                    {target: 'inspector:keepProportions', text: k(3, 'h3'), done: c => !c.panelOpen('proportionsLocked') || wideOk(c)},
                     {target: 'inspector:size', text: k(3, 'h2'), done: wideOk}
                 ]
             },

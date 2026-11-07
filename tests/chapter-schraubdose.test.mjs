@@ -156,11 +156,13 @@ test('S5: Spiel 0,2–0,4 mm, gemessen am Deckelnetz (live: 0,21 bei 0,2 und 0,0
 
 test('S6: 5 mm Abstand, auf einer Linie, auf der Platte', () => {
     assert.ok(Math.abs(ch.helpers.distance(ch.helpers.sets(ctx(made))[0]) - 9.1) < 0.05, 'Abstand nur auf der Platte (live 9,1)');
-    assert.deepEqual(done(5, made), [1, 2], 'direkt nach „Deckel machen“: 9,1 mm');
+    // Review W2: „mittig“ und „auf der Platte“ sind nach „Deckel machen“ schon wahr – keine eigenen Aufgaben.
+    assert.equal(ch.steps[5].tasks.length, 1);
+    assert.deepEqual(done(5, made), [], 'direkt nach „Deckel machen“: 9,1 mm');
     passes(5, finished);
     hasNot(5, overlapping, 0);
-    hasNot(5, [canGroup(), lidWith(0.2, {x: 46.62, z: 0})], 1);
-    hasNot(5, [canGroup(), lidWith(0.2, {x: 46.62, elevation: 3})], 2);
+    hasNot(5, [canGroup(), lidWith(0.2, {x: 46.62, z: 0})], 0);
+    hasNot(5, [canGroup(), lidWith(0.2, {x: 46.62, elevation: 3})], 0);
     // Reihe nach vorn (z) statt zur Seite: auch gut
     passes(5, [canGroup(), lidWith(0.2, {x: -12, z: -12 + 25.91 + 5 + 27.71})]);
     // Drehung egal

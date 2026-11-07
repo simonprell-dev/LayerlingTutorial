@@ -216,7 +216,8 @@
     };
 
     LK.course = {
-        chapters: [namensschild, ...['lesezeichen', 'stiftebecher', 'handystaender', 'schraubdose', 'getriebe'].map(fromFile)],
+        // Reihenfolge = Ladereihenfolge der Kapiteldateien (CHAPTERS in background.js).
+        chapters: [namensschild, ...Object.keys(LK.chapters || {}).map(fromFile)],
         levels: ['neu', 'etwas', 'profi']
     };
 })(typeof window !== 'undefined' ? window : globalThis);

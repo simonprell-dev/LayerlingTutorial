@@ -60,10 +60,8 @@
         'schraubdose.s6.title': 'Measure and align',
         'schraubdose.s6.text': '<p>Two parts on one build plate: they must not touch, but shouldn’t be needlessly far apart. Goal: <b>5 mm gap</b>.</p>' +
             '<ul><li><b>Measure:</b> <b>“Tape measure”</b> in the view bar on the left → <b>“Add measurement”</b> → a point on the jar’s edge, a point on the lid’s edge. Type <b>5</b> into the bubble – the lid moves to exactly that distance. (Or type the X position under <b>“Position”</b>.)</li>' +
-            '<li><b>Align:</b> select both, <b>“Align”</b> (section <b>“Arrange”</b>, key <b>L</b>) and click the middle point across the row.</li></ul>',
-        'schraubdose.s6.t1': 'Jar–lid gap 4–6 mm',
-        'schraubdose.s6.t2': 'Centred on one line',
-        'schraubdose.s6.t3': 'Both stand on the plate',
+            '<li><b>Slipped?</b> Layerling puts the lid centred next to the jar. If it got out of line while moving: select both, <b>“Align”</b> (section <b>“Arrange”</b>, key <b>L</b>) and click the middle point across the row.</li></ul>',
+        'schraubdose.s6.t1': '5 mm gap, centred, on the plate',
         'schraubdose.s6.h1': '“Tape measure”: 5 mm gap',
         'schraubdose.s6.h2': 'Select jar and lid',
         'schraubdose.s6.h3': 'Click “Align”',
