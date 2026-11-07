@@ -1,0 +1,22 @@
+name: Prüfen
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: JavaScript-Syntax prüfen
+        run: for f in background.js reset-pending.js lib/*.js course/*.js course/i18n/*.js; do node --check "$f"; done
+      - name: Tests
+        run: npm test
+      - name: Kursinhalte prüfen
+        run: npm run check
+      - name: Manifest und Sprachdateien sind gültiges JSON
+        run: node -e "for (const f of ['manifest.json','_locales/de/messages.json','_locales/en/messages.json']) JSON.parse(require('fs').readFileSync(f,'utf8'))"
