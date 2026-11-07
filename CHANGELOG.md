@@ -12,6 +12,8 @@ Format nach [Keep a Changelog](https://keepachangelog.com/de/1.1.0/), Versionen 
 - Kapitel 1 „Dein Namensschild“ mit 12 Schritten: Quader, genaue Maße, Text auf der Platte,
   Aussparung als Loch, gruppieren, STL-Export, Challenge, Bonus-Werkzeug „Namensschild“.
 - Kapitel 2–6 in der Übersicht angekündigt.
+- Schon offene Layerling-Tabs bekommen den Kurs direkt nach der Installation, beim Einschalten
+  und beim Klick aufs Symbol – kein Neuladen nötig.
 - Zeige-Hand findet Knöpfe auch in eingeklappten Werkzeugbereichen und Eigenschaften-Karten und
   erkennt, wenn eine Form gerade an der Maus hängt.
 - Automatische, großzügige Prüfungen (Bereiche statt fester Maße); das Loch muss die Platte ganz

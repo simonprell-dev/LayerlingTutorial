@@ -77,15 +77,39 @@ async function setup () {
     const enabled = await isEnabled();
     createMenu(enabled);
     await applyEnabled(enabled);
+    return enabled;
 }
 
-chrome.runtime.onInstalled.addListener(setup);
+// Registrierte Skripte greifen erst beim nächsten Laden einer Seite. Layerling-Tabs, die
+// schon offen sind (z. B. direkt nach der Installation), bekommen den Kurs hier nachgereicht.
+// course.js bricht ab, wenn der Kurs im Tab schon läuft.
+async function injectIntoOpenTabs () {
+    if (!await isEnabled()) return;
+    const tabs = await chrome.tabs.query({url: LAYERLING_TABS});
+    await Promise.all(tabs.map(async tab => {
+        const target = {tabId: tab.id};
+        try {
+            const [probe] = await chrome.scripting.executeScript({
+                target, world: 'MAIN', func: () => Boolean(window.LK && window.LK.started)
+            });
+            if (probe && probe.result) return;
+            await chrome.scripting.insertCSS({target, files: PAGE_SCRIPTS.css});
+            await chrome.scripting.executeScript({target, world: 'MAIN', files: PAGE_SCRIPTS.js});
+        } catch (e) { /* Tab lädt gerade oder ist nicht erreichbar – beim Laden kommt der Kurs ohnehin */ }
+    }));
+}
+
+chrome.runtime.onInstalled.addListener(async () => {
+    await setup();
+    await injectIntoOpenTabs();
+});
 chrome.runtime.onStartup.addListener(setup);
 
 chrome.contextMenus.onClicked.addListener(async info => {
     if (info.menuItemId === 'enabled') {
         await chrome.storage.local.set({enabled: info.checked});
         await applyEnabled(info.checked);
+        if (info.checked) await injectIntoOpenTabs();
         notifyTabs(msg(info.checked ? 'toastOn' : 'toastOff'));
     } else if (info.menuItemId === 'reset') {
         await resetProgress();
@@ -101,6 +125,7 @@ chrome.action.onClicked.addListener(async () => {
     if (tab) {
         await chrome.tabs.update(tab.id, {active: true});
         await chrome.windows.update(tab.windowId, {focused: true});
+        await injectIntoOpenTabs();
     } else {
         await chrome.tabs.create({url: EDITOR_URL});
     }
