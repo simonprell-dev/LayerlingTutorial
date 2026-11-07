@@ -56,3 +56,21 @@ test('distance: Abstand der Hüllquader', () => {
     close(g.distance(plate, {x: 40, z: 0, width: 4, depth: 4, height: 3}), 3);
     assert.equal(g.distance(plate, {x: 0, z: 0, width: 4, depth: 4, height: 3}), 0);
 });
+
+test('flatten: Gruppen-Teile werden in absolute Koordinaten umgerechnet (live in Layerling 1.150 gemessen)', () => {
+    const out = g.flatten([{id: 'g', kind: 'mesh', x: -26, z: 1, elevation: 2, rotation: 0, groupedShapes: [
+        {id: 'b', kind: 'box', x: 0, z: 0, elevation: 0, width: 20, depth: 20, height: 20},
+        {id: 'c', kind: 'cylinder', x: 22, z: -21, elevation: 1, width: 20, depth: 20, height: 20}
+    ]}]);
+    const c = out.find(e => e.shape.id === 'c').shape;
+    assert.deepEqual([c.x, c.z, c.elevation], [-4, -20, 3]);
+    assert.equal(c.kind, 'cylinder');
+});
+
+test('flatten: gedrehte Gruppe dreht die Versätze mit', () => {
+    const out = g.flatten([{id: 'g', x: 0, z: 0, elevation: 0, rotation: 90, groupedShapes: [
+        {id: 'c', x: 10, z: 0, elevation: 0, rotation: 0, width: 1, depth: 1, height: 1}
+    ]}]);
+    const c = out.find(e => e.shape.id === 'c').shape;
+    close(Math.abs(c.x), 0); close(Math.abs(c.z), 10); assert.equal(c.rotation, 90);
+});

@@ -4,8 +4,9 @@ export const text = {id: 't', name: 'Text', kind: 'text', color: '#333333', text
 export const hole = {id: 'h', name: 'Cylinder', kind: 'cylinder', color: '#888888', hole: true, x: 28, z: 0, elevation: -1, size: 5, width: 5, depth: 5, height: 6, rotation: 0};
 export const oldBoxShape = {id: 'old', name: 'Box', kind: 'box', color: '#cccccc', x: 200, z: 200, elevation: 0, size: 20, width: 20, depth: 20, height: 20, rotation: 0};
 
-const group = (id, parts) => ({id, name: 'Group', kind: 'box', color: '#ff9f43', groupOperation: 'group', groupedShapes: parts,
-    x: 0, z: 0, elevation: -1, size: 70, width: 70, depth: 25, height: 6, rotation: 0});
+// Gruppen wie in Layerling 1.150: kind 'mesh', Teile relativ zur Gruppe (hier liegt die Gruppe im Ursprung).
+const group = (id, parts) => ({id, name: 'Group', kind: 'mesh', color: '#ff9f43', groupOperation: 'group', groupedShapes: parts,
+    x: 0, z: 0, elevation: 0, size: 70, width: 70, depth: 25, height: 6, rotation: 0});
 
 export const S = {
     empty: [],
